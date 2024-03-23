@@ -50,10 +50,10 @@ Les personnes qui vont travailler sur ce projet sont : Ghita Tagmouti et Marwa C
   3. En tant qu'utilisateur je peux recevoir des statistiques sur ma réponse aux rappels quotidiens.
 
 # Technologies :
--> Flutter
--> VS Code
--> FireBase
--> Figma/ XML
+- Flutter
+- VS Code
+- FireBase
+- Figma/ XML
 
 
 
