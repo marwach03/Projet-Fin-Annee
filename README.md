@@ -54,7 +54,7 @@ Les personnes qui vont travailler sur ce projet sont : Ghita Tagmouti et Marwa C
 -> VS Code
 -> FireBase
 -> Figma/ XML
--
+
 
 
 
