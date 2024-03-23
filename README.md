@@ -1,7 +1,7 @@
 # Application Mobile : Santé mentale et bien-être
 Lien du projet Fin Année : https://github.com/users/marwach03/projects/6
 # Projet en cours de réalisation par : CHAOUI Marwa et TAGMOUTI Ghita
-Les personnes qui vont travailler sur ce projet sont : Ghita Tagmouti et Marwa Chaoui
+Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa CHAOUI
 # Fonctionnalités proposé : 
 - Suivi de l'humeur : 
   1. En tant qu'utilisateur je peux enregistrer mon humeur quotidienne pour suivre mes fluctuations émotionnelles.
