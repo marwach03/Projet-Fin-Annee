@@ -50,10 +50,12 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
   3. En tant qu'utilisateur je peux recevoir des statistiques sur ma réponse aux rappels quotidiens.
 
 # Technologies :
-- Flutter
-- VS Code
-- FireBase
-- Figma/ XML
+- Le langage de programmation backend sera Java avec le Framework Spring.
+- Le langage de programmation frontend sera Dart avec le Framework Flutter.
+- L’outil de développement inclura Visual Studio Code .
+- Pour l’interface utilisateur UI on utilisera Figma .
+- Base de données : fireBase .
+
 
 
 
