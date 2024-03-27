@@ -51,7 +51,11 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
 
 # Technologies :
 - Le langage de programmation backend sera Java avec le Framework Spring.
+    Lien JAVA : https://www.java.com/fr/
+    Lien SPRING : https://spring.io/
 - Le langage de programmation frontend sera Dart avec le Framework Flutter.
+    Lien DART : https://dart.dev/
+    Lien FLUTTER : https://flutter.dev/
 - L’outil de développement inclura Visual Studio Code .
 - Pour l’interface utilisateur UI on utilisera Figma .
 - Base de données : fireBase .
