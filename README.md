@@ -57,11 +57,11 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
     - Lien DART : https://dart.dev/
     - Lien FLUTTER : https://flutter.dev/
 - L’outil de développement inclura Visual Studio Code .
-    - Lien Visual Studio Code : https://code.visualstudio.com/ 
+    - Lien VISUAL STUDIO CODE : https://code.visualstudio.com/ 
 - Pour l’interface utilisateur UI on utilisera Figma .
-    - Lien Figma : https://www.figma.com/fr/
+    - Lien FIGMA : https://www.figma.com/fr/
 - Base de données : fireBase .
-    - Lien firebase : https://firebase.google.com/
+    - Lien DIREBASE : https://firebase.google.com/
 
 
 
