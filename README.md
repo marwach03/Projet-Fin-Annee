@@ -50,18 +50,16 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
   3. En tant qu'utilisateur je peux recevoir des statistiques sur ma réponse aux rappels quotidiens.
 
 # Technologies :
-- Le langage de programmation backend sera Java avec le Framework Spring.
-    - Lien JAVA : https://www.java.com/fr/
-    - Lien SPRING : https://spring.io/
-- Le langage de programmation frontend sera Dart avec le Framework Flutter.
-    - Lien DART : https://dart.dev/
-    - Lien FLUTTER : https://flutter.dev/
+- Backend : 
+    - [Node js](JavaScript) : https://nodejs.org/en
+- Frontend : 
+    - [React-native] : https://reactnative.dev/
 - L’outil de développement inclura Visual Studio Code .
-    - Lien VISUAL STUDIO CODE : https://code.visualstudio.com/ 
+    - [VISUAL STUDIO CODE] : https://code.visualstudio.com/ 
 - Pour l’interface utilisateur UI on utilisera Figma .
-    - Lien FIGMA : https://www.figma.com/fr/
+    - [FIGMA] : https://www.figma.com/fr/
 - Base de données : fireBase .
-    - Lien DIREBASE : https://firebase.google.com/
+    - [FIREBASE] : https://firebase.google.com/
 
 
 
