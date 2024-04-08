@@ -7,7 +7,7 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
   1. En tant qu'utilisateur je peux enregistrer mon humeur quotidienne pour suivre mes fluctuations émotionnelles.
   2. En tant qu'utilisateur je peux ajouter des notes ou des commentaires à chaque enregistrement d'humeur pour noter les événements associés.
   3. En tant qu'utilisateur je peux voir des graphiques ou des visualisations de mes données d'humeur au fil du temps pour mieux comprendre les tendances.
-  4. En tant qu'utilisateur je peux partager mes données d'humeur avec mon thérapeute ou d'autres personnes de confiance. d'humeur sous forme de fichier CSV ou PDF.
+  4. En tant qu'utilisateur je peux partager mes données d'humeur avec mon thérapeute ou d'autres personnes de confiance sous forme de fichier CSV ou PDF.
   5. En tant qu'utilisateur je peux modifier ou supprimer mes enregistrements d'humeur précédents si nécessaire.
      
 - Suivi de sommeil :
