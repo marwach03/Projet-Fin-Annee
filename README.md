@@ -17,34 +17,36 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
   5. En tant qu'utilisateur je peux modifier ou supprimer mes enregistrements de sommeil précédents au besoin.
   6. En tant qu'utilisateur je peux exporter mes données de sommeil en format CSV ou PDF pour consultation médicale ou personnelle.
      
- # Méditation Guidée et exercices de Relaxation  :
-  1. En tant qu'utilisateur je peux accéder à une bibliothèque d'articles sur la santé mentale pour enrichir mes connaissances.
-  2. En tant qu'utilisateur je peux regarder des vidéos éducatives sur des sujets de santé mentale pour apprendre des techniques.
-  3. En tant qu'utilisateur je peux écouter des podcasts sur la santé mentale pour obtenir des conseils pratiques.
-  4. En tant qu'utilisateur je peux rechercher des ressources éducatives par mots-clés ou catégories.
-  5. En tant qu'utilisateur je peux sauvegarder mes articles, vidéos ou podcasts préférés pour y accéder facilement.
-  6. En tant qu'utilisateur je peux accéder à une variété de séances de méditation guidée dans l'application.
-  7. En tant qu'utilisateur je peux suivre mes progrès en méditation en enregistrant mes sessions.
+ # Méditation Guidée et exercices de relaxation  :
+  1. En tant qu'utilisateur je peux écouter des audios de la méditation guidée pour apprendre la relaxation et réduire le stress.
+  2. En tant qu'utilisateur je peux accéder à des exercices et des vidéos de relaxation musculaire pour relâcher les tensions physiques et mentales.
 
-- Exercices de Respiration et de Relaxation :
+ # Exercices de Respiration  :
   1. En tant qu'utilisateur je peux accéder à une variété d'exercices de respiration pour calmer l'esprit et réduire le stress.
-  2. En tant qu'utilisateur je peux accéder à des exercices de relaxation musculaire pour relâcher les tensions physiques et mentales.
 
-- Listes de Tâches (To-Do List) : 
+ # Ressources éducatives : 
+  1. En tant qu'utilisateur je peux accéder à une bibliothèque d'articles sur la santé mentale pour enrichir mes connaissances.
+  2.  En tant qu'utilisateur je peux écouter des podcasts sur la santé mentale pour obtenir des conseils pratiques.
+  3.   En tant qu'utilisateur je peux regarder des vidéos éducatives sur des sujets de santé mentale .
+  4.    En tant qu'utilisateur je peux rechercher des ressources éducatives par mots-clés ou catégories.
+  5. En tant qu'utilisateur je peux sauvegarder mes articles, vidéos ou podcasts préférés pour y accéder facilement.
+
+ # Listes de Tâches (To-Do List) : 
   1. En tant qu'utilisateur je peux créer des listes de tâches pour organiser mes activités quotidiennes et mes projets.
   2. En tant qu'utilisateur je peux ajouter des tâches avec description, date d'échéance et priorité.
   3. En tant qu'utilisateur je peux marquer les tâches comme complétées pour suivre mes progrès.
-  4. En tant qu'utilisateur je peux définir des rappels pour ne pas manquer les échéances.
-- Rappels Quotidiens :
-  1. En tant qu'utilisateur je peux planifier des rappels quotidiens pour des activités spécifiques comme l'hydratation, la méditation, etc.
+  4.  En tant qu'utilisateur je peux visualiser touts les listes .
+
+ # Rappels Quotidiens :
+  1. En tant qu'utilisateur je peux recevoir des rappels quotidiens pour des activités spécifiques comme l'hydratation, la méditation, etc.
   2. En tant qu'utilisateur je peux recevoir des notifications visuelles pour ne pas manquer les rappels.
-  3. En tant qu'utilisateur je peux recevoir des statistiques sur ma réponse aux rappels quotidiens.
 
 # Technologies :
 - Backend : 
     - [Node js](JavaScript) : https://nodejs.org/en
 - Frontend : 
     - [React-native] : https://reactnative.dev/
+    - [Expo] : https://expo.dev/
 - L’outil de développement inclura Visual Studio Code .
     - [VISUAL STUDIO CODE] : https://code.visualstudio.com/ 
 - Pour l’interface utilisateur UI on utilisera Figma .
