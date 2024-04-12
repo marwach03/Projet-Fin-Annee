@@ -54,7 +54,9 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
 - Base de données : fireBase .
     - [FIREBASE] : https://firebase.google.com/
 
-
+# Pour executer notre application :
+    cd front
+    npm run android
 
 
 
