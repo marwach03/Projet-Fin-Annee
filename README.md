@@ -63,6 +63,7 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
     npm add @react-navigation/bottom-tabs
     npm install firebase
     npx expo install react-native-gesture-handler
+    npm install react-native-swipe-gestures
     npm run android
 
 
