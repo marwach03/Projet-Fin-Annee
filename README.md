@@ -55,7 +55,14 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
     - [FIREBASE] : https://firebase.google.com/
 
 # Pour executer notre application :
-    cd front
+    cd frontend
+    npm install @react-navigation/native-stack
+    npm i @react-navigation/native
+    npm install @react-navigation/stack
+    npx expo install expo-splash-screen
+    npm add @react-navigation/bottom-tabs
+    npm install firebase
+    npx expo install react-native-gesture-handler
     npm run android
 
 
