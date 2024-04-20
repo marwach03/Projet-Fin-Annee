@@ -1,9 +1,11 @@
+// Humeur.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, Dimensions } from 'react-native';
 import SwipeGesture from 'react-native-swipe-gestures';
 import { useNavigation } from '@react-navigation/native';
+import AddMood from './AddMood';
 
-const NeutralEmoji = () => <Text style={styles.emoji}>{' 😐 '}</Text>;
+const NeutralEmoji = () => <Text style={styles.emoji}>{" ☺ "}</Text>;
 
 const Humeur = ({ navigation }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -46,12 +48,12 @@ const Humeur = ({ navigation }) => {
     calendarGrid.push(
       <View key={i} style={styles.weekRow}>
         {week.map((day, index) => (
-          <TouchableOpacity key={index} onPress={() => handleDateClick(day)} style={[styles.dayCell, day === selectedDate ? styles.selectedDay : null]}>
-            <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null]}>
-              {day}
-            </Text>
-            {day !== '' && <NeutralEmoji />}
-          </TouchableOpacity>
+            <TouchableOpacity key={index} onPress={() => handleDateClick(day)} style={[styles.dayCell, day === selectedDate ? styles.selectedDay : null]}>
+              <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null]}>
+                {day}
+              </Text>
+              {day !== '' && <NeutralEmoji />}
+            </TouchableOpacity>
         ))}
       </View>
     );
@@ -115,7 +117,7 @@ const Humeur = ({ navigation }) => {
 
         <View >
         <ImageBackground source={require('../images/poudre.jpg')} style={styles.container2}>
-            <Text style={styles.datetext}>{ currentDate.getDay() } {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</Text>
+          <Text style={styles.datetext}>{ selectedDate ? selectedDate : todayDate } {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</Text>
         </ImageBackground>
         </View>
 
@@ -127,8 +129,6 @@ const Humeur = ({ navigation }) => {
           </TouchableOpacity>
         </ImageBackground>
     </View>
-
-    
     
   );
 };
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 40,
     borderColor: '#000',
+    marginBottom: -windowWidth * 0.09,
   },
   navigation: {
     flexDirection: 'row',
@@ -181,18 +182,19 @@ const styles = StyleSheet.create({
     marginBottom: windowHeight * 0.003,
   },
   emoji: {
-    fontSize: windowHeight * 0.025,
+    fontSize: windowHeight * 0.035,
     marginTop: windowHeight * 0.003,
-    color: '#4caf50',
   },
   selectedDay: {
     backgroundColor:'#008080',
     borderRadius:25,
+    color:'black',
   },
   todayText: {
     fontWeight: 'bold', // Style for today's date
     fontWeight:900,
     fontSize: windowHeight * 0.017,
+    color:'red',
   },
   image: {
     width: windowWidth * 0.2,
@@ -216,6 +218,7 @@ const styles = StyleSheet.create({
     height: windowWidth * 0.3,
     borderRadius:15,
     overflow: 'hidden',
+    
   },
   datetext:{
     color:'white',
