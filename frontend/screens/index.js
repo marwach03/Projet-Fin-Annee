@@ -5,6 +5,8 @@ import GetStarted from "./GetStarted";
 import Acceuil from "./Acceuil";
 import Humeur from "./Humeur";
 import Profile from "./Profile";
+import AddMood from "./AddMood";
+
 export {
     Login,
     Signup,
@@ -12,5 +14,6 @@ export {
     GetStarted,
     Acceuil,
     Humeur,
-    Profile
+    Profile,
+    AddMood,
 }

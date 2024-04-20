@@ -13,6 +13,7 @@ import Login from "./screens/Login";
 import Acceuil from "./screens/Acceuil";
 import Humeur from "./screens/Humeur";
 import Profile from "./screens/Profile";
+import AddMood from "./screens/AddMood";
 import BottomTabNavigator from "./navigation/bottomTabNavigator";
 
 // Importations inchangées
@@ -66,6 +67,7 @@ function App() {
           <Stack.Screen name="Acceuil" component={BottomTabNavigator} />
           <Stack.Screen name="Humeur" component={Humeur} />
           <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="AddMood" component={AddMood} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
