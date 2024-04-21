@@ -1,17 +1,45 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
+import axios from 'axios';
+
 
 const Emoji = ({ emoji }) => <Text style={styles.emojiText}>{emoji}</Text>;
 
-const AddMood = () => {
-  const [selectedMood, setSelectedMood] = React.useState('');
+const AddMood = ({navigation}) => {
+  const [selectedMoodIndex, setSelectedMoodIndex] = React.useState(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const handleEmojiPress = (mood, index) => {
-    setSelectedMood(mood);
+
+  const handleEmojiPress = (index) => {
+    setSelectedMoodIndex(index);
     setSelectedIndex(index);
   };
 
+  const handleValidation = async () => {
+    try {
+      if (selectedMoodIndex !== null) {
+        const selectedMood = emojis[selectedMoodIndex];
+        const moodData = {
+          mood: selectedMood.emoji.props.emoji,
+          description: selectedMood.mood,
+          timestamp: new Date().toISOString(),
+          userID: 'marwach03' 
+        };
+  
+        // Appel de la fonction addMood ici
+        await axios.post('http://192.168.11.224:3000/enregistrer-mood', moodData);
+        
+        console.log('Mood envoyé avec succès au serveur.');
+  
+      } else {
+        console.error('Aucun mood sélectionné.');
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi du mood au serveur :', error);
+    }
+  };  
+  
+  
   const emojis = [
     { emoji: <Emoji emoji="⊗" />, mood: '~  ~' },
     { emoji: <Emoji emoji="🙂" />, mood: '~ Slightly ~' },
@@ -37,13 +65,10 @@ const AddMood = () => {
     { emoji: <Emoji emoji="😴" />, mood: '~ Sleeping ~' },
     { emoji: <Emoji emoji="😑" />, mood: '~ Expressionless ~' },
     { emoji: <Emoji emoji="🤯" />, mood: '~ Exploding head ~' },
-    // Add more emojis here
+    // Ajouter plus d'emojis ici
   ];
 
-  // Get the current date
   const currentDate = new Date();
-  
-  // Format the current date
   const formattedDate = currentDate.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -53,36 +78,32 @@ const AddMood = () => {
 
   return (
     <View>
-      {/* Header showing the current date */}
       <View style={styles.header}>
         <Text style={styles.headerText}>{formattedDate}</Text>
       </View>
 
-      {/* Emoji selection */}
       <View style={styles.container}>
         {emojis.map(({ emoji, mood }, index) => (
           <TouchableOpacity
             key={index}
             style={[styles.emojiContainer, index === selectedIndex && styles.selectedEmoji]}
-            onPress={() => handleEmojiPress(mood, index)}
+            onPress={() => handleEmojiPress(index)}
           >
             {emoji}
           </TouchableOpacity>
         ))}
-        {selectedMood !== '' && (
-          <Text style={styles.selectedMoodText}>{selectedMood}</Text>
+        {selectedMoodIndex !== null && (
+          <Text style={styles.selectedMoodText}>{emojis[selectedMoodIndex].mood}</Text>
         )}
       </View>
       
-      {/* Validation button */}
-      <TouchableOpacity style={styles.button1}>
+      <TouchableOpacity style={styles.button1} onPress={handleValidation}>
         <Text style={styles.TextValider}>Valider</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-// Styles
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -91,12 +112,12 @@ const styles = StyleSheet.create({
     marginTop: windowHeight * 0.08,
     marginBottom: windowHeight * 0.04,
     alignItems: 'center',
-    marginBottom:7.5,
+    marginBottom: 7.5,
   },
   headerText: {
     fontSize: windowHeight * 0.025,
     fontWeight: 'bold',
-    marginTop:-24,
+    marginTop: -24,
   },
   container: {
     flexWrap: 'wrap',
@@ -107,7 +128,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     paddingTop: 20,
     paddingBottom: 20,
-    alignItems:'center',
+    alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
     borderColor: 'transparent',
@@ -117,8 +138,8 @@ const styles = StyleSheet.create({
   },
   selectedEmoji: {
     borderRadius: 10,
-    backgroundColor:'#008080',
-    width:5,
+    backgroundColor: '#008080',
+    width: 5,
   },
   selectedMoodText: {
     fontSize: windowHeight * 0.025,
