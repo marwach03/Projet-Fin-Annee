@@ -1,19 +1,20 @@
-// Humeur.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, Dimensions } from 'react-native';
 import SwipeGesture from 'react-native-swipe-gestures';
 import { useNavigation } from '@react-navigation/native';
 import AddMood from './AddMood';
 
-const NeutralEmoji = () => <Text style={styles.emoji}>{" ☺ "}</Text>;
+const NeutralEmoji = () => <Text style={styles.emoji}>{" ☺︎ "}</Text>;
 
 const Humeur = ({ navigation }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
+  const [emoji, setEmoji] = useState(null);
+  const [currentUsername, setCurrentUsername] = useState(null); // Ajout de la variable currentUsername
 
   const changeMonth = (increment) => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + increment, 1));
-    setSelectedDate(null); // Reset selected date when changing month
+    setSelectedDate(null);
   };
 
   const handleDateClick = (day) => {
@@ -21,6 +22,24 @@ const Humeur = ({ navigation }) => {
   };
 
   const daysOfWeek = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+
+  useEffect(() => {
+    fetchEmoji();
+  }, [selectedDate]);
+
+  const fetchEmoji = async () => {
+    try {
+      const response = await fetch(`http://192.168.11.224:3000/collect-emoji`);
+      const data = await response.json();
+      if (response.ok) {
+        setEmoji(data.emoji);
+      } else {
+        console.error("Erreur lors de la récupération de l'emoji:", data.error);
+      }
+    } catch (error) {
+      console.error("Erreur lors de la récupération de l'emoji:", error);
+    }
+  };
 
   const today = new Date();
   const todayDate = today.getDate();
@@ -48,23 +67,29 @@ const Humeur = ({ navigation }) => {
     calendarGrid.push(
       <View key={i} style={styles.weekRow}>
         {week.map((day, index) => (
-            <TouchableOpacity key={index} onPress={() => handleDateClick(day)} style={[styles.dayCell, day === selectedDate ? styles.selectedDay : null]}>
-              <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null]}>
-                {day}
-              </Text>
-              {day !== '' && <NeutralEmoji />}
-            </TouchableOpacity>
+          <TouchableOpacity
+            key={index}
+            onPress={() => handleDateClick(day)}
+            style={[styles.dayCell, day === selectedDate ? styles.selectedDay : null]}
+          >
+            <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null]}>
+              {day}
+            </Text>
+            {day !== '' && selectedDate === day && emoji && (
+              <Text style={styles.emoji}>{emoji}</Text>
+            )}
+          </TouchableOpacity>
         ))}
       </View>
     );
   }
 
   const navAddMood = () => {
-      navigation.navigate('AddMood');
+    navigation.navigate('AddMood');
   };
 
   const swipeConfig = {
-    velocityThreshold: 0.2 ,
+    velocityThreshold: 0.2,
     directionalOffsetThreshold: 70,
   };
 
@@ -74,62 +99,53 @@ const Humeur = ({ navigation }) => {
   return (
     <View>
       <Image source={require('../images/logo.png')} style={styles.image} />
-        <Text style={styles.title}>Mood Board</Text>
+      <Text style={styles.title}>Mood Board</Text>
 
-        <View>
-          <SwipeGesture
-            onSwipeLeft={onSwipeLeft}
-            onSwipeRight={onSwipeRight}
-            config={swipeConfig}
-            style={styles.container}
-          >
+      <View>
+        <SwipeGesture
+          onSwipeLeft={onSwipeLeft}
+          onSwipeRight={onSwipeRight}
+          config={swipeConfig}
+          style={styles.container}
+        >
+          <ImageBackground source={require('../images/marbre.jpg')}  style={styles.calendar}>
+            <View style={styles.navigation}>
+              <TouchableOpacity onPress={() => changeMonth(-1)}>
+                <Text style={styles.navigationText}>{'<'}</Text>
+              </TouchableOpacity>
+              <Text style={styles.navigationText}>
+                {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
+              </Text>
+              <TouchableOpacity onPress={() => changeMonth(1)}>
+                <Text style={styles.navigationText}>{'>'}</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.daysOfWeekRow}>
+              {daysOfWeek.map((day) => (
+                <Text key={day} style={styles.dayOfWeekText}>
+                  {day}
+                </Text>
+              ))}
+            </View>
+            {calendarGrid}
+          </ImageBackground>
+        </SwipeGesture>
+      </View>
 
-
-              <ImageBackground source={require('../images/marbre.jpg')}  style={styles.calendar}>
-                <View style={styles.navigation}>
-
-                  <TouchableOpacity onPress={() => changeMonth(-1)}>
-                    <Text style={styles.navigationText}>{'<'}</Text>
-                  </TouchableOpacity>
-
-                  <Text style={styles.navigationText}>
-                    {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
-                  </Text>
-
-                  <TouchableOpacity onPress={() => changeMonth(1)}>
-                    <Text style={styles.navigationText}>{'>'}</Text>
-                  </TouchableOpacity>
-
-                  </View>
-
-                  <View style={styles.daysOfWeekRow}>
-                  {daysOfWeek.map((day) => (
-                    <Text key={day} style={styles.dayOfWeekText}>
-                      {day}
-                    </Text>
-                  ))}
-                  </View>
-                  {calendarGrid}
-              </ImageBackground>
-
-          </SwipeGesture>
-        </View>
-
-        <View >
+      <View>
         <ImageBackground source={require('../images/poudre.jpg')} style={styles.container2}>
           <Text style={styles.datetext}>{ selectedDate ? selectedDate : todayDate } {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</Text>
         </ImageBackground>
-        </View>
+      </View>
 
-        <View style={styles.line}></View>
+      <View style={styles.line}></View>
 
-        <ImageBackground source={require('../images/marbre.jpg')} style={styles.container3}>
-          <TouchableOpacity onPress={navAddMood}>
-            <Text style={styles.datetext2}>Add My Mood</Text>
-          </TouchableOpacity>
-        </ImageBackground>
+      <ImageBackground source={require('../images/marbre.jpg')} style={styles.container3}>
+        <TouchableOpacity onPress={navAddMood}>
+          <Text style={styles.datetext2}>Add My Mood</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     </View>
-    
   );
 };
 
@@ -142,7 +158,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   container: {
-    marginTop: windowHeight * 0.19,
+    marginTop: windowHeight * 0.15,
     marginLeft: windowHeight * 0.007,
     width: '97%',
     borderWidth: 1,
@@ -191,7 +207,7 @@ const styles = StyleSheet.create({
     color:'black',
   },
   todayText: {
-    fontWeight: 'bold', // Style for today's date
+    fontWeight: 'bold',
     fontWeight:900,
     fontSize: windowHeight * 0.017,
     color:'red',
@@ -199,15 +215,15 @@ const styles = StyleSheet.create({
   image: {
     width: windowWidth * 0.2,
     height: windowHeight * 0.1,
-    marginBottom: windowWidth * 0.01,
-    marginTop:windowHeight * 0.06,
+    marginBottom: windowWidth * 0.05,
+    marginTop:windowHeight * 0.05,
     marginLeft: windowHeight * 0.02,
   },
   title: {
     fontSize: windowWidth * 0.09,
-    marginTop: windowWidth * -0.17,
+    marginTop: windowHeight * -0.11,
     marginLeft: windowHeight * 0.11,
-    marginBottom: windowHeight * -0.15,
+    marginBottom: windowHeight * -0.14,
     fontWeight: 'bold',
     color: '#008080',
   },
@@ -218,7 +234,6 @@ const styles = StyleSheet.create({
     height: windowWidth * 0.3,
     borderRadius:15,
     overflow: 'hidden',
-    
   },
   datetext:{
     color:'white',

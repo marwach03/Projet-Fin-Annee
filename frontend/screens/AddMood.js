@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import axios from 'axios';
-
+import Humeur from './Humeur';
+import Acceuil from './Acceuil';
+import { useNavigation } from '@react-navigation/native';
+import { firebase } from '../config'; // Importez firebase depuis le fichier de configuration
 
 const Emoji = ({ emoji }) => <Text style={styles.emojiText}>{emoji}</Text>;
 
-const AddMood = ({navigation}) => {
-  const [selectedMoodIndex, setSelectedMoodIndex] = React.useState(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+const AddMood = ({ navigation }) => {
+  const [selectedMoodIndex, setSelectedMoodIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [username, setUsername] = useState(null);
 
+  useEffect(() => {
+    // Récupérer l'utilisateur actuellement connecté
+    const currentUser = firebase.auth().currentUser;
+
+    // Vérifier si un utilisateur est connecté
+    if (currentUser) {
+      // Récupérer les informations de l'utilisateur à partir de la base de données Firestore
+      firebase.firestore().collection('users').doc(currentUser.uid).get()
+        .then((doc) => {
+          if (doc.exists) {
+            // Récupérer le nom d'utilisateur depuis les données de l'utilisateur
+            const userData = doc.data();
+            setUsername(userData.username);
+          } else {
+            console.log('No such document!');
+          }
+        })
+        .catch((error) => {
+          console.log('Error getting document:', error);
+        });
+    }
+  }, []); // Le tableau vide en tant que dépendance assure que cela ne s'exécute qu'une seule fois après le rendu initial
+
+  const handleMoodBoard = () => {
+    navigation.navigate('Acceuil');
+  }
 
   const handleEmojiPress = (index) => {
     setSelectedMoodIndex(index);
@@ -23,7 +53,7 @@ const AddMood = ({navigation}) => {
           mood: selectedMood.emoji.props.emoji,
           description: selectedMood.mood,
           timestamp: new Date().toISOString(),
-          userID: 'marwach03' 
+          username: username, // Utilisez le nom d'utilisateur récupéré depuis Firebase
         };
   
         // Appel de la fonction addMood ici
@@ -31,13 +61,15 @@ const AddMood = ({navigation}) => {
         
         console.log('Mood envoyé avec succès au serveur.');
   
+        // Navigation vers la page Humeur après un enregistrement réussi
+        handleMoodBoard();
       } else {
         console.error('Aucun mood sélectionné.');
       }
     } catch (error) {
       console.error('Erreur lors de l\'envoi du mood au serveur :', error);
     }
-  };  
+  };
   
   
   const emojis = [
@@ -55,7 +87,7 @@ const AddMood = ({navigation}) => {
     { emoji: <Emoji emoji="😟" />, mood: '~ Anguished ~' },
     { emoji: <Emoji emoji="🥳" />, mood: '~ Partying ~' },
     { emoji: <Emoji emoji="😕" />, mood: '~ Confused ~' },
-    { emoji: <Emoji emoji="☹" />, mood: '~ Frowning ~' },
+    { emoji: <Emoji emoji="☹️" />, mood: '~ Frowning ~' },
     { emoji: <Emoji emoji="😫" />, mood: '~ Tired ~' },
     { emoji: <Emoji emoji="😔" />, mood: '~ Pensive ~' },
     { emoji: <Emoji emoji="😢" />, mood: '~ Crying ~' },
