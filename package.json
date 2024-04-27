@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "@react-native-picker/picker": "^2.7.5",
+    "axios": "^1.6.8",
+    "expo-splash-screen": "^0.26.4",
     "express": "^4.19.2",
-    "firebase": "^10.11.0",
+    "firebase": "^10.11.1",
     "firebase-admin": "^12.1.0"
   }
 }

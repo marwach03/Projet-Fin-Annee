@@ -41,13 +41,14 @@ const BottomTabNavigator = () => {
 const styles = StyleSheet.create({
   tabBarStyle: {
     position: 'absolute',
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     overflow: 'hidden',
     elevation: 0,
     borderTopWidth: 0,
-    bottom: 10,
-    right: 10,
-    left: 10,
+    bottom: 0,
+    right: 15,
+    left: 15,
+    borderRadius:20,
   },
   tabBarButton:{
     

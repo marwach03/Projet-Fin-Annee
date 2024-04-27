@@ -19,7 +19,7 @@ const Humeur = ({ navigation }) => {
     setSelectedDate(day);
   };
 
-  const daysOfWeek = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat'];
 
   useEffect(() => {
     if (selectedDate === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear) {
@@ -31,7 +31,7 @@ const Humeur = ({ navigation }) => {
 
   const fetchEmoji = async () => {
     try {
-      const response = await fetch(`http://10.10.1.86:3000/collect-emoji`);
+      const response = await fetch('http://192.168.11.162:3000/collect-emoji');
       const data = await response.json();
       if (response.ok) {
         setEmoji(data.emoji);
@@ -77,7 +77,7 @@ const Humeur = ({ navigation }) => {
               day === selectedDate && day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.selectedDay : null,
             ]}
           >
-            <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null]}>
+            <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null ] }>
               {day}
             </Text>
             {day !== '' && selectedDate === day && emoji && (
@@ -123,7 +123,7 @@ const Humeur = ({ navigation }) => {
                 <Text style={styles.navigationText}>{'<'}</Text>
               </TouchableOpacity>
               <Text style={styles.navigationText}>
-                {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
+                {currentDate.toLocaleString('en-US', { month: 'long' })} {currentDate.getFullYear()}
               </Text>
               <TouchableOpacity onPress={() => changeMonth(1)}>
                 <Text style={styles.navigationText}>{'>'}</Text>
@@ -143,7 +143,7 @@ const Humeur = ({ navigation }) => {
 
       <View>
         <ImageBackground source={require('../images/poudre.jpg')} style={styles.container2}>
-          <Text style={styles.datetext}>{ selectedDate ? selectedDate : todayDate } {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</Text>
+          <Text style={styles.datetext}>{ selectedDate ? selectedDate : todayDate } {currentDate.toLocaleString('en-US', { month: 'long' })} {currentDate.getFullYear()}</Text>
         </ImageBackground>
       </View>
 
@@ -192,6 +192,8 @@ const styles = StyleSheet.create({
   dayOfWeekText: {
     fontSize: windowWidth * 0.04,
     marginBottom: windowHeight * 0.005,
+    marginLeft:windowHeight * -0.002,
+    margin:windowHeight * 0.009,
   },
   weekRow: {
     flexDirection: 'row',
@@ -253,15 +255,15 @@ const styles = StyleSheet.create({
     marginLeft: windowWidth * 0.04,
   },
   line: {
-    marginTop: -windowHeight * 0.12,
-    marginLeft: windowHeight * 0.15,
+    marginTop: -windowHeight * 0.13,
+    marginLeft: windowHeight * 0.16,
     width: windowHeight * 0.002, 
     height: windowHeight * 0.1, 
     backgroundColor: 'black', 
   },
   container3:{
     marginTop: -windowHeight * 0.07,
-    marginLeft: windowHeight * 0.18,
+    marginLeft: windowHeight * 0.19,
     width: windowHeight * 0.22,
     height: windowHeight * 0.05,
     borderRadius: 25,
