@@ -4,13 +4,11 @@ import SwipeGesture from 'react-native-swipe-gestures';
 import { useNavigation } from '@react-navigation/native';
 import AddMood from './AddMood';
 
-const NeutralEmoji = () => <Text style={styles.emoji}>{" ☺︎ "}</Text>;
-
 const Humeur = ({ navigation }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [emoji, setEmoji] = useState(null);
-  const [currentUsername, setCurrentUsername] = useState(null); // Ajout de la variable currentUsername
+  const NeutralEmoji = () => <Text style={styles.emoji}>{" ☺︎ "}</Text>;
 
   const changeMonth = (increment) => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + increment, 1));
@@ -24,12 +22,16 @@ const Humeur = ({ navigation }) => {
   const daysOfWeek = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
 
   useEffect(() => {
-    fetchEmoji();
+    if (selectedDate === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear) {
+      fetchEmoji();
+    } else {
+      setEmoji(null); // Réinitialiser l'emoji si la date sélectionnée n'est pas la date actuelle
+    }
   }, [selectedDate]);
 
   const fetchEmoji = async () => {
     try {
-      const response = await fetch(`http://192.168.11.224:3000/collect-emoji`);
+      const response = await fetch(`http://10.10.1.86:3000/collect-emoji`);
       const data = await response.json();
       if (response.ok) {
         setEmoji(data.emoji);
@@ -70,7 +72,10 @@ const Humeur = ({ navigation }) => {
           <TouchableOpacity
             key={index}
             onPress={() => handleDateClick(day)}
-            style={[styles.dayCell, day === selectedDate ? styles.selectedDay : null]}
+            style={[
+              styles.dayCell,
+              day === selectedDate && day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.selectedDay : null,
+            ]}
           >
             <Text style={[styles.dayText, day === todayDate && currentDate.getMonth() === todayMonth && currentDate.getFullYear() === todayYear ? styles.todayText : null]}>
               {day}
@@ -78,10 +83,14 @@ const Humeur = ({ navigation }) => {
             {day !== '' && selectedDate === day && emoji && (
               <Text style={styles.emoji}>{emoji}</Text>
             )}
+            {day !== '' && selectedDate !== day && (
+              <Text style={styles.emoji}>{" ☺︎ "}</Text>
+            )}
           </TouchableOpacity>
         ))}
       </View>
     );
+    
   }
 
   const navAddMood = () => {

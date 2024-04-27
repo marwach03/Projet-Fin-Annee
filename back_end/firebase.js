@@ -12,13 +12,18 @@ admin.initializeApp({
 // Get a reference to the Firestore database
 const db = admin.firestore();
 
-// Function to add a mood to Firestore
 async function addMood(moodData) {
   try {
-    // Add the mood to the "moods" collection
-    await db.collection('moods').add(moodData);
+    console.log("Deleting documents...");
+    // Delete all documents in the "moods" collection
+    const querySnapshot = await db.collection('moods').get();
+    const deletePromises = querySnapshot.docs.map((doc) => doc.ref.delete());
+    await Promise.all(deletePromises);
+    console.log("Documents deleted.");
 
-    console.log('Mood added to Firestore');
+    // Add the new mood to the collection "moods"
+    await db.collection('moods').add(moodData);
+    console.log("Mood added to Firestore");
   } catch (error) {
     console.error('Error adding mood to Firestore:', error);
   }
@@ -26,8 +31,17 @@ async function addMood(moodData) {
 
 async function collectEmoji() {
   try {
-    // Query Firestore pour obtenir un emoji (sans condition)
-    const querySnapshot = await db.collection('moods').limit(1).get();
+    // Obtenir la date actuelle
+    const today = new Date();
+    // Mettre la date au format ISOString (YYYY-MM-DD)
+    const todayISOString = today.toISOString().split('T')[0]; // Gardez seulement la partie date de l'ISOString
+
+    // Query Firestore pour obtenir un emoji pour la journée actuelle
+    const querySnapshot = await db.collection('moods')
+                                 .where('timestamp', '>=', `${todayISOString}T00:00:00`) // Début de la journée actuelle
+                                 .where('timestamp', '<=', `${todayISOString}T23:59:59`) // Fin de la journée actuelle
+                                 .limit(1)
+                                 .get();
 
     // Vérifier si le document a été trouvé
     if (!querySnapshot.empty) {
@@ -36,7 +50,7 @@ async function collectEmoji() {
       const emoji = moodData.mood;
       return emoji;
     } else {
-      // Si aucun document trouvé, retourner null ou une erreur
+      // Si aucun document trouvé, retourner null
       return null;
     }
   } catch (error) {

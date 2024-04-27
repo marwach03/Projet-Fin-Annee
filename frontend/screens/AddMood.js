@@ -57,7 +57,7 @@ const AddMood = ({ navigation }) => {
         };
   
         // Appel de la fonction addMood ici
-        await axios.post('http://192.168.11.224:3000/enregistrer-mood', moodData);
+        await axios.post('http://10.10.1.86:3000/enregistrer-mood', moodData);
         
         console.log('Mood envoyé avec succès au serveur.');
   
