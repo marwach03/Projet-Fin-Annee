@@ -14,6 +14,7 @@ import Acceuil from "./screens/Acceuil";
 import Humeur from "./screens/Humeur";
 import Profile from "./screens/Profile";
 import AddMood from "./screens/AddMood";
+import ToDoList from "./screens/todolist/ToDoList";
 import BottomTabNavigator from "./navigation/bottomTabNavigator";
 
 // Importations inchangées
@@ -68,6 +69,7 @@ function App() {
           <Stack.Screen name="Humeur" component={Humeur} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="AddMood" component={AddMood} />
+          <Stack.Screen name="ToDoList" component={ToDoList} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

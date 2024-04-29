@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, ImageBackground , Image, Dimensions, TouchableOpacity } from 'react-native';
 import { firebase } from '../config';
+import ToDoList from './todolist/ToDoList'
+import { useNavigation } from '@react-navigation/native';
 
 const Acceuil = () => {
+  const navigation = useNavigation();
   const [username, setUsername] = useState(null);
 
   const currentDate = new Date();
@@ -12,6 +15,10 @@ const Acceuil = () => {
     month: 'long',
     year: 'numeric',
   });  
+
+  const handleToDoList = () => {
+    navigation.navigate('ToDoList'); 
+  }
 
   useEffect(() => {
     // Récupérer l'utilisateur actuellement connecté
@@ -72,7 +79,7 @@ const Acceuil = () => {
               <Text style={styles.datetext2}>Breathing exercises</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} onPress={() => handleToDoList()}>
               <Image source={require('../images/todolist.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>To do list</Text>
             </TouchableOpacity>
