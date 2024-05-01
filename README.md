@@ -43,7 +43,7 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
 
 # Technologies :
 - Backend : 
-    - [Node js](JavaScript) : https://nodejs.org/en
+    - [Node js](https://nodejs.org/en)
 - Frontend : 
     - [React-native] : https://reactnative.dev/
     - [Expo] : https://expo.dev/
