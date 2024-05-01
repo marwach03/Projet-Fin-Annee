@@ -45,14 +45,14 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
 - Backend : 
     - [Node js](https://nodejs.org/en)
 - Frontend : 
-    - [React-native] : https://reactnative.dev/
-    - [Expo] : https://expo.dev/
+    - [React-native](https://reactnative.dev/)
+    - [Expo](https://expo.dev/)
 - L’outil de développement inclura Visual Studio Code .
-    - [VISUAL STUDIO CODE] : https://code.visualstudio.com/ 
+    - [VISUAL STUDIO CODE](https://code.visualstudio.com/) 
 - Pour l’interface utilisateur UI on utilisera Figma .
-    - [FIGMA] : https://www.figma.com/fr/
+    - [FIGMA](https://www.figma.com/fr/)
 - Base de données : fireBase .
-    - [FIREBASE] : https://firebase.google.com/
+    - [FIREBASE](https://firebase.google.com/)
 
 # Pour executer notre application :
     cd frontend
