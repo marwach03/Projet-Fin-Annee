@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, Dimensions } from 'react-native';
 import { firebase } from '../config';
 import { FONTS } from '../constants/fonts';
-import Acceuil from "./Acceuil";
+import Acceuil from "./acceuil";
 import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {

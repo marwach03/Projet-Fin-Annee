@@ -31,7 +31,7 @@ const Humeur = ({ navigation }) => {
 
   const fetchEmoji = async () => {
     try {
-      const response = await fetch('http://192.168.11.162:3000/collect-emoji');
+      const response = await fetch('http://192.168.11.192:3000/collect-emoji');
       const data = await response.json();
       if (response.ok) {
         setEmoji(data.emoji);

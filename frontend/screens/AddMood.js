@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import axios from 'axios';
 import Humeur from './Humeur';
-import Acceuil from './Acceuil';
+import Acceuil from './acceuil';
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../config'; // Importez firebase depuis le fichier de configuration
 
@@ -57,7 +57,7 @@ const AddMood = ({ navigation }) => {
         };
   
         // Appel de la fonction addMood ici
-        await axios.post('http://192.168.11.162:3000/enregistrer-mood', moodData);
+        await axios.post('http://192.168.11.192:3000/enregistrer-mood', moodData);
         
         console.log('Mood envoyé avec succès au serveur.');
   

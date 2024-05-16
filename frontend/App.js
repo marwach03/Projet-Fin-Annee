@@ -10,13 +10,19 @@ import GetStarted from "./screens/GetStarted";
 import Welcome from "./screens/Welcome";
 import Signup from "./screens/Signup";
 import Login from "./screens/Login";
-import Acceuil from "./screens/Acceuil";
+import Acceuil from "./screens/acceuil";
 import Humeur from "./screens/Humeur";
 import Profile from "./screens/Profile";
 import AddMood from "./screens/AddMood";
 import ToDoList from "./screens/todolist/ToDoList";
 import BottomTabNavigator from "./navigation/bottomTabNavigator";
-
+import Citation from "./screens/Citations/citations";
+import Work from "./screens/Citations/work";
+import Succes from "./screens/Citations/succes";
+import Friend from "./screens/Citations/friend";
+import Stress from "./screens/Citations/stress";
+import Mothers from "./screens/Citations/mothers";
+import Departs from "./screens/Citations/departs";
 // Importations inchangées
 
 const Stack = createStackNavigator();
@@ -70,6 +76,13 @@ function App() {
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="AddMood" component={AddMood} />
           <Stack.Screen name="ToDoList" component={ToDoList} />
+          <Stack.Screen name="Citation" component={Citation} />
+          <Stack.Screen name="Work" component={Work} />
+          <Stack.Screen name="Succes" component={Succes} />
+          <Stack.Screen name="Friend" component={Friend} />
+          <Stack.Screen name="Stress" component={Stress} />
+          <Stack.Screen name="Mothers" component={Mothers} />
+          <Stack.Screen name="Departs" component={Departs} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, ImageBackground , Image, Dimensions, TouchableOpacity } from 'react-native';
 import { firebase } from '../config';
-import ToDoList from './todolist/ToDoList'
+import ToDoList from './todolist/ToDoList';
 import { useNavigation } from '@react-navigation/native';
+import citation from './Citations/citations';
 
 const Acceuil = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState(null);
+
+  const handleQuotes = () => {
+    navigation.navigate('Citation');
+  };
+
+
 
   const currentDate = new Date();
   // Formater la date (par exemple: "27 avril 2024")
@@ -54,7 +61,7 @@ const Acceuil = () => {
         <View style={styles.bigcontainer}>
           <Text style={styles.h1}>Recommended for you</Text>
           <View style={styles.containerRow}>
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} onPress={() => handleQuotes()}>
               <Image source={require('../images/citation2.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>Quotes</Text>
             </TouchableOpacity>
@@ -167,7 +174,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.2,
     marginTop: windowHeight * 0.07,
     marginBottom: windowHeight * -0.05,
-    marginLeft: windowWidth * 0.035,
+    marginLeft: windowHeight * 0.035,
     backgroundColor: 'white',
     borderRadius: 10,
     justifyContent: 'center',
