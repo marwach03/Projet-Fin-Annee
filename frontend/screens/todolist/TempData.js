@@ -1,8 +1,30 @@
 
 export default tempData = [
     {
+        name:"Errands",
+        Color:`#24A6D9`,
+        todos:[
+            {
+                title:"Buy Milk",
+                completed:false,
+            },
+            {
+                title:"Plan Weekend Camping Trip",
+                completed:true,
+            },
+            {
+                title:"Make a Video",
+                completed:true,
+            },
+            {
+                title:"Take dog for a walk",
+                completed:true,
+            }
+        ]
+    },
+    {
         name:"Plan a Trip",
-        Color: Teal (`#008080`),
+        Color: `#2D3436`,
         todos:[
             {
                 title:"Book Flight",
@@ -24,7 +46,7 @@ export default tempData = [
     },
     {
         name:"Birthday Party",
-        Color: Teal (`#008080`),
+        Color:`#008080`,
         todos:[
             {
                 title:"Get Balloons",
@@ -46,7 +68,7 @@ export default tempData = [
     },
     {
         name:"Errands",
-        Color: Teal (`#008080`),
+        Color:`#A7CBD9`,
         todos:[
             {
                 title:"Buy Milk",

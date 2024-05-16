@@ -1,13 +1,13 @@
-import { View, Text,StyleSheet,TouchableOpacity,FlatList } from 'react-native'
+import { View, Text,StyleSheet,TouchableOpacity,ScrollView } from 'react-native'
 import React from 'react'
 import {AntDesign} from '@expo/vector-icons'
-import tempData from './tempData'
+import tempData from './TempData'
 import List from '../../components/List'
 
 export default ToDoList = () => {
   return (
     <View style={styles.container}>
-      <View style={{flexDirection:"row"}}>
+      <View style={{flexDirection:"row",marginTop: 80}}>
         <View style={styles.divider} />
           <Text style={styles.title1}>To Do<Text style={styles.title2}>Lists</Text></Text>
           <View style={styles.divider} />
@@ -19,15 +19,13 @@ export default ToDoList = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.bb}>
-        <FlatList 
-          data={tempData}
-          keyExtractor={item => item.name} 
-          horizontal={true} 
-          showsHorizontalScrollIndicator={false} 
-          renderItem={({item}) => <List list={item} />}
-        />
-      </View>
+      <ScrollView style={styles.bb} showsVerticalScrollIndicator={false}>
+      {tempData.map((item, index) => (
+        <View key={item.name} style={[styles.listItem, index !== tempData.length - 1 && styles.listItemWithSpacing]}>
+          <List list={item} />
+        </View>
+        ))}
+      </ScrollView>
 
     </View>
   )
@@ -57,18 +55,27 @@ const styles = StyleSheet.create({
     color:'#008080',
   },
   aa:{
-    marginVertical:48,
+    marginVertical:20,
   },
-  addList:{
-    borderWidth:2,
+  addList: {
+    marginLeft: 'auto',
+    borderWidth: 2,
     borderColor: '#008080',
-    borderRadius:15,
-    alignItems:"center",
-    justifyContent:"center",
+    borderRadius: 15,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  listItem: {
+    width: 200, // Largeur de chaque élément de la liste
+    marginRight: 16, // Marge entre chaque élément
   },
   bb:{
     height:275,
-    paddingLeft:32,
+    paddingLeft:1,
+  },
+  listItemWithSpacing: {
+    marginBottom: 30, // Espacement supplémentaire pour le dernier élément
   },
 });
 
