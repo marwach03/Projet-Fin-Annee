@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        width: 420,
+        height: 900,
     },
     imageStyle: {
         resizeMode: 'cover', // Assurez-vous que l'image de fond couvre tout l'écran
