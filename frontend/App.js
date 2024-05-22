@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import {FONTS} from "./constants/fonts";
-import { firebase } from './config';
+import { FONTS } from "./constants/fonts";
+import { firebase } from './config'; // Ensure this is correctly configured
 import GetStarted from "./screens/GetStarted";
 import Welcome from "./screens/Welcome";
 import Signup from "./screens/Signup";
@@ -23,7 +23,7 @@ import Friend from "./screens/Citations/friend";
 import Stress from "./screens/Citations/stress";
 import Mothers from "./screens/Citations/mothers";
 import Departs from "./screens/Citations/departs";
-// Importations inchangées
+
 
 const Stack = createStackNavigator();
 
@@ -35,13 +35,13 @@ function App() {
 
   useEffect(() => {
     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
-    return () => subscriber(); // Unsubscribe on unmount
+    return subscriber; // Unsubscribe on unmount
   }, []);
 
   const onAuthStateChanged = (user) => {
     setUser(user);
     if (initializing) setInitializing(false);
-  }
+  };
 
   useEffect(() => {
     if (!initializing && user) {

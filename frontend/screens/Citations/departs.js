@@ -35,6 +35,9 @@ const Departs = () => {
     );
 }
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
     quoteContainer: {
         flex: 1,
@@ -43,7 +46,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     quoteText: {
-        fontSize: 35,
+        fontSize: windowWidth * 0.08,
         fontStyle: 'italic',
         fontWeight: 'bold',
         color: 'white',
@@ -53,8 +56,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        width: 420,
-        height: 900,
+        width: windowWidth * 1,
+        height: windowHeight * 1.04,
     },
     imageStyle: {
         resizeMode: 'cover', // Assurez-vous que l'image de fond couvre tout l'écran

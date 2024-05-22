@@ -14,7 +14,6 @@ const Acceuil = () => {
   };
 
 
-
   const currentDate = new Date();
   // Formater la date (par exemple: "27 avril 2024")
   const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -76,7 +75,7 @@ const Acceuil = () => {
               <Text style={styles.datetext2}>Learning resources</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} >
               <Image source={require('../images/meditation.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>Guided meditation</Text>
             </TouchableOpacity>
@@ -174,7 +173,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.2,
     marginTop: windowHeight * 0.07,
     marginBottom: windowHeight * -0.05,
-    marginLeft: windowWidth * 0.035,
+    marginLeft: windowHeight * 0.035,
     backgroundColor: 'white',
     borderRadius: 10,
     justifyContent: 'center',
