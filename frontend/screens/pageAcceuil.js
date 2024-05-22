@@ -4,6 +4,7 @@ import { firebase } from '../config';
 import ToDoList from './todolist/ToDoList';
 import { useNavigation } from '@react-navigation/native';
 import citation from './Citations/citations';
+import MeditationAcceuil from './Meditation/meditationAcceuil';
 
 const Acceuil = () => {
   const navigation = useNavigation();
@@ -13,6 +14,9 @@ const Acceuil = () => {
     navigation.navigate('Citation');
   };
 
+  const handleMeditationAcceuil = () => {
+    navigation.navigate('MeditationAcceuil');
+  };
 
   const currentDate = new Date();
   // Formater la date (par exemple: "27 avril 2024")
@@ -75,7 +79,7 @@ const Acceuil = () => {
               <Text style={styles.datetext2}>Learning resources</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers} >
+            <TouchableOpacity style={styles.containers} onPress={() => handleMeditationAcceuil()}>
               <Image source={require('../images/meditation.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>Guided meditation</Text>
             </TouchableOpacity>
