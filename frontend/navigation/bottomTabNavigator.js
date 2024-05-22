@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Acceuil from "../screens/acceuil";
+import Acceuil from "../screens/pageAcceuil";
 import Humeur from "../screens/Humeur";
 import Profile from "../screens/Profile";
 import CustomTabBarButton from "../components/CustomTabBarButton";
