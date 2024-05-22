@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from "expo-font";
+import { FONTS } from "./constants/fonts";
 import * as SplashScreen from "expo-splash-screen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { FONTS } from "./constants/fonts";
 import { firebase } from './config'; // Ensure this is correctly configured
 import GetStarted from "./screens/GetStarted";
 import Welcome from "./screens/Welcome";
@@ -23,6 +23,8 @@ import Friend from "./screens/Citations/friend";
 import Stress from "./screens/Citations/stress";
 import Mothers from "./screens/Citations/mothers";
 import Departs from "./screens/Citations/departs";
+import MeditationAcceuil from "./screens/Meditation/meditationAcceuil";
+import MindClear from "./screens/Meditation/mindclear";
 
 
 const Stack = createStackNavigator();
@@ -83,6 +85,8 @@ function App() {
           <Stack.Screen name="Stress" component={Stress} />
           <Stack.Screen name="Mothers" component={Mothers} />
           <Stack.Screen name="Departs" component={Departs} />
+          <Stack.Screen name="MeditationAcceuil" component={MeditationAcceuil} />
+          <Stack.Screen name="MindClear" component={MindClear} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
