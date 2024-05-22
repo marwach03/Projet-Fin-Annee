@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import axios from 'axios';
 import Humeur from './Humeur';
-import Acceuil from './acceuil';
+import Acceuil from './pageAcceuil';
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../config'; // Importez firebase depuis le fichier de configuration
 

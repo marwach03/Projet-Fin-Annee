@@ -10,7 +10,7 @@ import GetStarted from "./screens/GetStarted";
 import Welcome from "./screens/Welcome";
 import Signup from "./screens/Signup";
 import Login from "./screens/Login";
-import Acceuil from "./screens/acceuil";
+import Acceuil from "./screens/pageAcceuil";
 import Humeur from "./screens/Humeur";
 import Profile from "./screens/Profile";
 import AddMood from "./screens/AddMood";

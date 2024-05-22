@@ -2,7 +2,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Welcome from "./Welcome";
 import GetStarted from "./GetStarted";
-import Acceuil from "./acceuil";
+import Acceuil from "./pageAcceuil";
 import Humeur from "./Humeur";
 import Profile from "./Profile";
 import AddMood from "./AddMood";
