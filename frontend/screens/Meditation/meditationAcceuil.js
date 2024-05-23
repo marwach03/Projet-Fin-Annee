@@ -9,6 +9,10 @@ const MeditationAcceuil = () => {
     navigation.navigate('MindClear');
   };
 
+  const handleBrightenDay = () => {
+    navigation.navigate('BrightenDay');
+  };
+
   return (
       <View style={styles.container}>
 
@@ -19,7 +23,7 @@ const MeditationAcceuil = () => {
               <Text style={styles.datetext2}>Clear Your Mind & Start New Positive Habits</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} onPress={() => handleBrightenDay()}>
               <Text style={styles.datetext2}>Brighten Your Day</Text>
             </TouchableOpacity>
 

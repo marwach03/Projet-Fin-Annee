@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Modal } from 'rea
 import { Audio, Video } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
 
-class MindClear extends Component {
+class BrightenDay extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ class MindClear extends Component {
   async componentDidMount() {
     // Charge le premier son
     const { sound } = await Audio.Sound.createAsync(
-      require('../../assets/ClearMind.wav')
+      require('../../assets/BrightenDay.wav')
     );
     const status = await sound.getStatusAsync();
     this.setState({ sound, duration: status.durationMillis });
@@ -172,7 +172,7 @@ class MindClear extends Component {
     return (
       <View style={styles.container}>
         <Video
-          source={require('../../assets/back1.mp4')}
+          source={require('../../assets/back2.mp4')}
           rate={1.0}
           volume={1.0}
          
@@ -346,4 +346,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MindClear;
+export default BrightenDay;
