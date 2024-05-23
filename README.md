@@ -56,16 +56,23 @@ Les personnes qui vont travailler sur ce projet sont : Ghita TAGMOUTI et Marwa C
     - [FIREBASE](https://firebase.google.com/)
 
 # Pour executer notre application :
-    cd frontend
-    npm install @react-navigation/native-stack
-    npm i @react-navigation/native
-    npm install @react-navigation/stack
-    npx expo install expo-splash-screen
-    npm add @react-navigation/bottom-tabs
-    npm install firebase
-    npx expo install react-native-gesture-handler
-    npm install react-native-swipe-gestures
-    npm run android
+    + Pour la partie back_end : il faut ouvrir un terminal
+       cd back_end 
+       npm install firebase
+       npm install firebase-admin
+       node firebas.js
+       node index.js
+       
+    + Pour la partie frontend : il faut ouvrir un autre terminal 
+       cd frontend
+       npm install @react-navigation/native-stack
+       npm i @react-navigation/native
+       npm install @react-navigation/stack
+       npx expo install expo-splash-screen
+       npm add @react-navigation/bottom-tabs
+       npx expo install react-native-gesture-handler
+       npm install react-native-swipe-gestures
+       npm run android
 
 
 
