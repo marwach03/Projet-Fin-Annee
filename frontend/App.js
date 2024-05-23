@@ -27,6 +27,9 @@ import MeditationAcceuil from "./screens/Meditation/meditationAcceuil";
 import MindClear from "./screens/Meditation/mindclear";
 import BrightenDay from "./screens/Meditation/brightenDay";
 import Breathing from "./screens/BreathingExercice/breathing";
+import MoreConfident from "./screens/Meditation/moreConfident";
+import Mindfulness from "./screens/Meditation/mindfulness";
+
 const Stack = createStackNavigator();
 
 function App() {
@@ -88,6 +91,8 @@ function App() {
           <Stack.Screen name="MeditationAcceuil" component={MeditationAcceuil} />
           <Stack.Screen name="MindClear" component={MindClear} />
           <Stack.Screen name="BrightenDay" component={BrightenDay} />
+          <Stack.Screen name="MoreConfident" component={MoreConfident}/>
+          <Stack.Screen name="Mindfulness" component={Mindfulness}/>
           <Stack.Screen name="Breathing" component={Breathing}/>
         </Stack.Navigator>
       </NavigationContainer>

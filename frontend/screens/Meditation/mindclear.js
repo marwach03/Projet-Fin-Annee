@@ -25,19 +25,12 @@ class MindClear extends Component {
   }
 
   async componentDidMount() {
-    // Charge le premier son
     const { sound } = await Audio.Sound.createAsync(
       require('../../assets/ClearMind.wav')
     );
     const status = await sound.getStatusAsync();
     this.setState({ sound, duration: status.durationMillis });
     sound.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate);
-
-    // Charge le second son
-    const { sound: secondSound } = await Audio.Sound.createAsync(
-      this.state.soundList[this.state.selectedSoundIndex].file
-    );
-    this.setState({ secondSound });
   }
 
   componentWillUnmount() {
@@ -59,19 +52,16 @@ class MindClear extends Component {
   };
 
   async playSound() {
-    const { sound, playbackPosition, selectedSoundIndex } = this.state;
+    const { sound, playbackPosition } = this.state;
     await sound.playFromPositionAsync(playbackPosition);
     this.setState({ isPlaying: true });
     this.playbackInterval = setInterval(() => {
       this.updatePlaybackPosition();
     }, 500);
-    // Lecture du deuxième son lorsque le premier son est lu
-    await this.playSecondSound();
   }
-  
 
   async pauseSound() {
-    const { sound, secondSound } = this.state;
+    const { sound } = this.state;
     if (sound) {
       const status = await sound.getStatusAsync();
       if (status.isLoaded && status.isPlaying) {
@@ -79,24 +69,16 @@ class MindClear extends Component {
         await sound.pauseAsync();
         this.setState({ playbackPosition, isPlaying: false });
         clearInterval(this.playbackInterval);
-        // Arrêter le second son
-        if (secondSound) {
-          await secondSound.pauseAsync();
-          this.setState({ isSecondSoundPlaying: false });
-        }
       }
     }
   }
-  
 
   async playSecondSound() {
-    const { secondSound, soundList, selectedSoundIndex } = this.state;
-    const selectedSound = soundList[selectedSoundIndex];
-    const { file } = selectedSound;
-    const { sound } = await Audio.Sound.createAsync(file);
-    this.setState({ secondSound: sound });
-    await sound.playAsync();
-    this.setState({ isSecondSoundPlaying: true });
+    const { secondSound } = this.state;
+    if (secondSound) {
+      await secondSound.playAsync();
+      this.setState({ isSecondSoundPlaying: true });
+    }
   }
 
   async pauseSecondSound() {
@@ -104,6 +86,23 @@ class MindClear extends Component {
     if (secondSound) {
       await secondSound.pauseAsync();
       this.setState({ isSecondSoundPlaying: false });
+    }
+  }
+
+  async handleSoundSelect(index) {
+    const { isSecondSoundPlaying, secondSound, soundList, selectedSoundIndex } = this.state;
+
+    // Si un son est déjà en cours de lecture, arrêtez-le
+    if (isSecondSoundPlaying) {
+      await secondSound.stopAsync();
+      this.setState({ isSecondSoundPlaying: false });
+    }
+
+    // Si l'index sélectionné est différent de l'index actuel ou si le son n'est pas en cours de lecture, démarrez la lecture
+    if (index !== selectedSoundIndex || !isSecondSoundPlaying) {
+      const { sound } = await Audio.Sound.createAsync(soundList[index].file);
+      this.setState({ secondSound: sound, selectedSoundIndex: index, isSecondSoundPlaying: true });
+      await sound.playAsync();
     }
   }
 
@@ -151,20 +150,6 @@ class MindClear extends Component {
     this.setState(prevState => ({ isVideoMuted: !prevState.isVideoMuted }));
   }
 
-  handleSoundSelect = (index) => {
-    const { isSecondSoundPlaying } = this.state;
-    if (!isSecondSoundPlaying) {
-      this.setState({ selectedSoundIndex: index }, () => {
-        this.playSecondSound();
-      });
-    } else {
-      this.pauseSecondSound();
-      this.setState({ selectedSoundIndex: index }, () => {
-        this.playSecondSound();
-      });
-    }
-  }
-
   render() {
     const { isPlaying, duration, playbackPosition, isVideoMuted, isSecondSoundPlaying, soundList, selectedSoundIndex, modalVisible } = this.state;
     const progress = duration > 0 ? (playbackPosition / duration) * 100 : 0;
@@ -175,7 +160,6 @@ class MindClear extends Component {
           source={require('../../assets/back1.mp4')}
           rate={1.0}
           volume={1.0}
-         
           isMuted={isVideoMuted}
           resizeMode="cover"
           shouldPlay
@@ -217,9 +201,9 @@ class MindClear extends Component {
           style={styles.secondSoundButton}
           onPress={() => this.setState({ modalVisible: !modalVisible })}>
           {isSecondSoundPlaying ? (
-            <Ionicons name="musical-notes" size={24} color="white" /> // Icône de notes de musique pour représenter les chansons
+            <Ionicons name="musical-notes" size={24} color="white" />
           ) : (
-            <Ionicons name="musical-notes-outline" size={24} color="white" /> // Icône de notes de musique en contour
+            <Ionicons name="musical-notes-outline" size={24} color="white" />
           )}
         </TouchableOpacity>
         <Modal
