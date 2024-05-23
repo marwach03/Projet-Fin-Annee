@@ -18,6 +18,9 @@ const Acceuil = () => {
     navigation.navigate('MeditationAcceuil');
   };
 
+  const handlBreathing = () => {
+    navigation.navigate('Breathing');
+  };
   const currentDate = new Date();
   // Formater la date (par exemple: "27 avril 2024")
   const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -84,7 +87,7 @@ const Acceuil = () => {
               <Text style={styles.datetext2}>Guided meditation</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} onPress={() => handlBreathing()}>
               <Image source={require('../images/respiration.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>Breathing exercises</Text>
             </TouchableOpacity>
