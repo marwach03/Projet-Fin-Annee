@@ -16,52 +16,5 @@ if (!firebase.apps.length){
     firebase.initializeApp(firebaseconfig);
 } 
 
-class TodoFire {
-    constructor(callback) {
-      this.init(callback);
-    }
-  
-    init(callback) {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                callback(null, user);
-                console.log("User is authenticated:", user);
-                // Autres actions à effectuer lorsque l'utilisateur est connecté
-            } 
-            else {
-                firebase
-                    .auth()
-                    .signInAnonymously()
-                    .catch(error => {
-                    callback(error);
-                    });
-                console.log("User is not authenticated");
-                // Autres actions à effectuer lorsque l'utilisateur est déconnecté
-            }
-          });
-    }
-  
-    getLists(callback) {
-        let ref = firebase
-          .firestore()
-          .collection('users')
-          .doc(this.userId)
-          .collection("lists");
-      
-        this.unsubscribe = ref.onSnapshot(snapshot => {
-          const lists = []; 
-      
-          snapshot.forEach(doc => {
-            lists.push({ id: doc.id, ...doc.data() }); 
-          });
-      
-          callback(lists);
-        });
-    }
-  
-    get userId() {
-      return firebase.auth().currentUser.uid;
-    }
-  }
 
-export{firebase,TodoFire};
+export{firebase};

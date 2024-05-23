@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, KeyboardAvoidingView, TouchableOpacity, TextInput } from 'react-native';
 import React, { Component } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import TempData from './TempData';  // Assurez-vous que le chemin est correct
+import TempData from './TempData';  
 
 export class AddListModal extends React.Component {
     backgroundColors = ["#5CD859", "#008080", "#24A6D9", "#8022D9", "#D159D8", "#D85963", "#D88559"];
@@ -14,20 +14,25 @@ export class AddListModal extends React.Component {
     createTodo = () => {
         const { name, color } = this.state;
         
-        
         if (name.length > 0) {
-            const list = {name,color}
+            const newList = {
+                id: Math.random(), // Générez un identifiant unique pour la nouvelle liste
+                name,
+                color, // Utiliser la couleur sélectionnée
+                todos: []
+            };
             
-            this.props.addList(list);
-
+            TempData.push(newList); // Ajouter la nouvelle liste à TempData
             console.log("Updated TempData:", TempData);
-
+    
             this.setState({ name: "" });
+            this.props.addList(newList); // Appeler la fonction addList pour ajouter la nouvelle liste
             this.props.closeModal();
         } else {
             alert("List name cannot be empty!");
         }
     };
+    
 
     renderColors() {
         return this.backgroundColors.map(color => {

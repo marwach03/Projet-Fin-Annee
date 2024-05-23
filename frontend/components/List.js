@@ -26,7 +26,7 @@ export default class List extends React.Component {
                         updateList={this.props.updateList} 
                     />
                 </Modal>
-                <TouchableOpacity style={[styles.listContainer, { backgroundColor: list.Color }]} onPress={() => this.toggleListModal()}>
+                <TouchableOpacity style={[styles.listContainer, { backgroundColor: list.color }]} onPress={() => this.toggleListModal()}>
                     <Text style={styles.listTitle} numberOfLines={1}> {list.name} </Text>
 
                     <View>

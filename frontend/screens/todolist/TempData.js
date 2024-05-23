@@ -1,8 +1,9 @@
 
 export default tempData = [
     {
+        id:1,
         name:"Errands",
-        Color:`#24A6D9`,
+        color:`#24A6D9`,
         todos:[
             {
                 title:"Buy Milk",
@@ -23,8 +24,9 @@ export default tempData = [
         ]
     },
     {
+        id:2,
         name:"Plan a Trip",
-        Color: `#2D3436`,
+        color: `#2D3436`,
         todos:[
             {
                 title:"Book Flight",
@@ -45,8 +47,9 @@ export default tempData = [
         ]
     },
     {
+        id:3,
         name:"Birthday Party",
-        Color:`#008080`,
+        color:`#008080`,
         todos:[
             {
                 title:"Get Balloons",
@@ -67,8 +70,9 @@ export default tempData = [
         ]
     },
     {
+        id:4,
         name:"Errands",
-        Color:`#A7CBD9`,
+        color:`#A7CBD9`,
         todos:[
             {
                 title:"Buy Milk",
