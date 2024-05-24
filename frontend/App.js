@@ -29,6 +29,7 @@ import BrightenDay from "./screens/Meditation/brightenDay";
 import Breathing from "./screens/BreathingExercice/breathing";
 import MoreConfident from "./screens/Meditation/moreConfident";
 import Mindfulness from "./screens/Meditation/mindfulness";
+import Sleep from "./screens/Sleep/BedtimeDial";
 
 const Stack = createStackNavigator();
 
@@ -94,6 +95,7 @@ function App() {
           <Stack.Screen name="MoreConfident" component={MoreConfident}/>
           <Stack.Screen name="Mindfulness" component={Mindfulness}/>
           <Stack.Screen name="Breathing" component={Breathing}/>
+          <Stack.Screen name="Sleep" component={Sleep}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -5,6 +5,7 @@ import ToDoList from './todolist/ToDoList';
 import { useNavigation } from '@react-navigation/native';
 import citation from './Citations/citations';
 import MeditationAcceuil from './Meditation/meditationAcceuil';
+import Sleep from './Sleep/BedtimeDial';
 
 const Acceuil = () => {
   const navigation = useNavigation();
@@ -21,6 +22,11 @@ const Acceuil = () => {
   const handlBreathing = () => {
     navigation.navigate('Breathing');
   };
+
+  const handleSleep = () => {
+    navigation.navigate('Sleep');
+  };
+
   const currentDate = new Date();
   // Formater la date (par exemple: "27 avril 2024")
   const formattedDate = currentDate.toLocaleDateString('en-US', {
@@ -72,7 +78,7 @@ const Acceuil = () => {
               <Text style={styles.datetext2}>Quotes</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} onPress={() => handleSleep()}>
               <Image source={require('../images/sommeil.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>Sleep</Text>
             </TouchableOpacity>

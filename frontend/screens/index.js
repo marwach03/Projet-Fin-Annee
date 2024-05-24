@@ -7,6 +7,7 @@ import Humeur from "./Humeur";
 import Profile from "./Profile";
 import AddMood from "./AddMood";
 import ToDoList from "./todolist/ToDoList";
+import Sleep from "./Sleep/BedtimeDial";
 
 export {
     Login,
@@ -18,4 +19,5 @@ export {
     Profile,
     AddMood,
     ToDoList,
+    Sleep
 }

@@ -182,6 +182,8 @@ const Breathing = () => {
     );
 };
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     container: {
@@ -192,10 +194,10 @@ const styles = StyleSheet.create({
         top: height / 5,
     },
     text: {
-        fontSize: 25,
+        fontSize: windowWidth * 0.07,
         fontWeight: "600",
-        marginTop:-500,
-        marginRight:150,
+        marginTop:- windowHeight* 0.76,
+        marginRight:windowWidth * 0.4,
     },
     container1: {
         borderWidth: 1,
@@ -205,27 +207,27 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Pour aligner les éléments verticalement
         paddingVertical: 10,
         width: width,
-        marginRight: 140,
-        width: 320,
+        marginRight: windowHeight* 0.19,
+        width: windowWidth* 0.89,
         padding: 10,
-        marginTop:100,
+        marginTop: windowHeight * 0.2,
     },
     rowItem: {
         flexDirection: 'column', // Pour aligner les éléments verticalement
         alignItems: 'center', // Pour aligner les éléments horizontalement
     },
     instructionText: {
-        fontSize: 13,
+        fontSize: windowWidth * 0.05,
         fontWeight: '400',
-        paddingHorizontal: 8,
+        paddingHorizontal: windowHeight * 0.028,
         textAlign:'center',
-        marginRight:8,
+        marginRight:windowWidth * 0.02,
     },
     icon: {
-        width: 30, // Modifier en fonction de la taille de votre icône
-        height: 30, // Modifier en fonction de la taille de votre icône
-        marginBottom: 8, // Espacement entre l'image et le texte
-        marginRight:12,
+        width: windowHeight * 0.05, // Modifier en fonction de la taille de votre icône
+        height: windowHeight * 0.05, // Modifier en fonction de la taille de votre icône
+        marginBottom:windowWidth * 0.03, // Espacement entre l'image et le texte
+        marginRight:windowWidth * 0.039,
     },    
 });
 
