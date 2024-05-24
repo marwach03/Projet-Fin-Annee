@@ -30,6 +30,18 @@ import Breathing from "./screens/BreathingExercice/breathing";
 import MoreConfident from "./screens/Meditation/moreConfident";
 import Mindfulness from "./screens/Meditation/mindfulness";
 import Sleep from "./screens/Sleep/BedtimeDial";
+import Learning from "./screens/LearnigRessources/learning";
+import Articles from "./screens/LearnigRessources/Articles/articles";
+import Emotional from "./screens/LearnigRessources/Articles/emotionalParagraph";
+import ParagraphOne from "./screens/LearnigRessources/Articles/pagrapheOne";
+import ParagraphTwo from "./screens/LearnigRessources/Articles/paragrapheTwo";
+import ParagraphThree from "./screens/LearnigRessources/Articles/paragrapheThree";
+import ParagraphFour from "./screens/LearnigRessources/Articles/paragrapheFour";
+import Psychology from "./screens/LearnigRessources/Articles/psychologyParagraph";
+import ParagraphFive from "./screens/LearnigRessources/Articles/paragrapheFive";
+import ParagraphSix from "./screens/LearnigRessources/Articles/paragrapheSix";
+import ParagraphSeven from "./screens/LearnigRessources/Articles/paragrapheSeven";
+import ParagraphEight from "./screens/LearnigRessources/Articles/paragrapheEight";
 
 const Stack = createStackNavigator();
 
@@ -96,6 +108,18 @@ function App() {
           <Stack.Screen name="Mindfulness" component={Mindfulness}/>
           <Stack.Screen name="Breathing" component={Breathing}/>
           <Stack.Screen name="Sleep" component={Sleep}/>
+          <Stack.Screen name="Learning" component={Learning}/>
+          <Stack.Screen name="Articles" component={Articles}/>
+          <Stack.Screen name="Emotional" component={Emotional}/>
+          <Stack.Screen name="ParagraphOne" component={ParagraphOne}/>
+          <Stack.Screen name="ParagraphTwo" component={ParagraphTwo}/>
+          <Stack.Screen name="ParagraphThree" component={ParagraphThree}/>
+          <Stack.Screen name="ParagraphFour" component={ParagraphFour}/>
+          <Stack.Screen name="Psychology" component={Psychology}/>
+          <Stack.Screen name="ParagraphFive" component={ParagraphFive}/>
+          <Stack.Screen name="ParagraphSix" component={ParagraphSix}/>
+          <Stack.Screen name="ParagraphSeven" component={ParagraphSeven}/>
+          <Stack.Screen name="ParagraphEight" component={ParagraphEight}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

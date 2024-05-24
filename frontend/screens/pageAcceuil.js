@@ -39,6 +39,10 @@ const Acceuil = () => {
     navigation.navigate('ToDoList'); 
   }
 
+  const handleLearning = () => {
+    navigation.navigate('Learning');
+  }
+
   useEffect(() => {
     // Récupérer l'utilisateur actuellement connecté
     const currentUser = firebase.auth().currentUser;
@@ -83,7 +87,7 @@ const Acceuil = () => {
               <Text style={styles.datetext2}>Sleep</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers}>
+            <TouchableOpacity style={styles.containers} onPress={() => handleLearning()}>
               <Image source={require('../images/ressourcesEd.png')} style={styles.icons2} />
               <Text style={styles.datetext2}>Learning resources</Text>
             </TouchableOpacity>
