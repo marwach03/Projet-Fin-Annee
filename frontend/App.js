@@ -52,7 +52,11 @@ import ParagraphThirteen from "./screens/LearnigRessources/Articles/paragrapheTh
 import ParagraphFourteen from "./screens/LearnigRessources/Articles/paragrapheFourteen";
 import ParagraphFifteen from "./screens/LearnigRessources/Articles/paragrapheFifteen";
 import ParagraphSixteen from "./screens/LearnigRessources/Articles/paragrapheSixteen";
-
+import Affirmations from "./screens/LearnigRessources/Affirmations/affirmations";
+import Motivation from "./screens/LearnigRessources/Affirmations/motivation";
+import Focussing from "./screens/LearnigRessources/Affirmations/foccusing";
+import ControlStress from "./screens/LearnigRessources/Affirmations/controlStress";
+import Positivity from "./screens/LearnigRessources/Affirmations/positivity";
 const Stack = createStackNavigator();
 
 function App() {
@@ -140,6 +144,11 @@ function App() {
           <Stack.Screen name="ParagraphFourteen" component={ParagraphFourteen}/>
           <Stack.Screen name="ParagraphFifteen" component={ParagraphFifteen}/>
           <Stack.Screen name="ParagraphSixteen" component={ParagraphSixteen}/>
+          <Stack.Screen name="Affirmations" component={Affirmations}/>
+          <Stack.Screen name="Motivation" component={Motivation}/>
+          <Stack.Screen name="Focussing" component={Focussing}/>
+          <Stack.Screen name="ControlStress" component={ControlStress}/>
+          <Stack.Screen name="Positivity" component={Positivity}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -9,6 +9,10 @@ const Learning = () => {
         navigation.navigate('Articles');
     }
 
+    const handleAffirmations = () => {
+      navigation.navigate('Affirmations')
+    }
+
     return (
       <View style={styles.container}>
 
@@ -27,7 +31,7 @@ const Learning = () => {
               <Text style={styles.datetext2}>Videos</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers} >
+            <TouchableOpacity style={styles.containers} onPress={() => handleAffirmations()}>
               <Text style={styles.datetext2}>Affiramtions</Text>
             </TouchableOpacity>
 

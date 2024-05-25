@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: windowWidth * 1,
-        height: windowHeight * 1.04,
+        height: windowHeight * 1.035,
     },
     imageStyle: {
         resizeMode: 'cover', // Assurez-vous que l'image de fond couvre tout l'écran

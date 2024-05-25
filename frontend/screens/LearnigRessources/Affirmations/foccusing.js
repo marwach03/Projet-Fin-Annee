@@ -3,16 +3,17 @@ import { StyleSheet, Text, View, FlatList, Dimensions, ImageBackground } from 'r
 
 // Tableau de données de citations avec des chemins d'accès aux images de fond correspondantes
 const quotesData = [
-    { id: '1', text: "~The universe will always give you another chance to start again, if you are brave enough to take it.~", background: require('../../imagesCitations/img36.jpg') },
-    { id: '2', text: "~Here we go. It's time to make the magic happen.~", background: require('../../imagesCitations/img37.jpg') },
-    { id: '3', text: "~Transformation is painful and messy at first, hang in there because it is also rewarding and empowering.~", background: require('../../imagesCitations/img38.jpg') },
-    { id: '4', text: "~You can choose your friends but you can't choose your family.~", background: require('../../imagesCitations/img39.jpg') },
-    { id: '5', text: "~One day, you will look back on this period of your life and you will be proud of yourself for knowing how to never give up.~", background: require('../../imagesCitations/img40.jpg') },
-    { id: '6', text: "~Choose growth over comfort.~", background: require('../../imagesCitations/img41.jpg') },
-    { id: '7', text: "~You are ready for a new phase of your life.~", background: require('../../imagesCitations/img42.jpg') },
+    { id: '1', text: "I am perfecting my ability to demonstrate extreme concentration.", background: require('../../../imagesCitations/img51.jpg') },
+    { id: '2', text: "I demonstrate discipline at work and resilience in my businesses.", background: require('../../../imagesCitations/img52.jpg') },
+    { id: '3', text: "My determination to concentrate generates positive results", background: require('../../../imagesCitations/img53.jpg') },
+    { id: '4', text: "I focus 100% on the task at hand.", background: require('../../../imagesCitations/img54.jpg') },
+    { id: '5', text: "My concentration improves every time I accomplish a task.", background: require('../../../imagesCitations/img55.jpg') },
+    { id: '6', text: "Each of my actions brings me closer to my goals.", background: require('../../../imagesCitations/img56.jpg') },
+    { id: '7', text: "I focus on my vision, leaving distractions behind me.", background: require('../../../imagesCitations/img57.jpg') },
+    { id: '8', text: "With each breath, I bring my attention back to the task at hand.", background: require('../../../imagesCitations/img58.jpg') },
 ];
 
-const Departs = () => {
+const Focussing = () => {
     return (
         <FlatList
             data={quotesData}
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
         fontSize: windowWidth * 0.08,
         fontStyle: 'italic',
         fontWeight: 'bold',
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
     },
     backgroundImage: {
@@ -64,4 +65,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Departs;
+export default Focussing;

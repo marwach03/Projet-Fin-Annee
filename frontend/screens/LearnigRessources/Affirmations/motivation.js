@@ -3,16 +3,17 @@ import { StyleSheet, Text, View, FlatList, Dimensions, ImageBackground } from 'r
 
 // Tableau de données de citations avec des chemins d'accès aux images de fond correspondantes
 const quotesData = [
-    { id: '1', text: "~The universe will always give you another chance to start again, if you are brave enough to take it.~", background: require('../../imagesCitations/img36.jpg') },
-    { id: '2', text: "~Here we go. It's time to make the magic happen.~", background: require('../../imagesCitations/img37.jpg') },
-    { id: '3', text: "~Transformation is painful and messy at first, hang in there because it is also rewarding and empowering.~", background: require('../../imagesCitations/img38.jpg') },
-    { id: '4', text: "~You can choose your friends but you can't choose your family.~", background: require('../../imagesCitations/img39.jpg') },
-    { id: '5', text: "~One day, you will look back on this period of your life and you will be proud of yourself for knowing how to never give up.~", background: require('../../imagesCitations/img40.jpg') },
-    { id: '6', text: "~Choose growth over comfort.~", background: require('../../imagesCitations/img41.jpg') },
-    { id: '7', text: "~You are ready for a new phase of your life.~", background: require('../../imagesCitations/img42.jpg') },
+    { id: '1', text: "I choose positivity and reject negativity.", background: require('../../../imagesCitations/img43.jpg') },
+    { id: '2', text: "I open myself to all the beauty and joy that life offers me.", background: require('../../../imagesCitations/img44.jpg') },
+    { id: '3', text: "I have the power to create the life I want.", background: require('../../../imagesCitations/img45.jpg') },
+    { id: '4', text: "I am responsible for how I feel and today I choose happiness.", background: require('../../../imagesCitations/img46.jpg') },
+    { id: '5', text: "I recognize my own value and my ability to contribute positively to the world.", background: require('../../../imagesCitations/img47.jpg') },
+    { id: '6', text: "Every day I learn, I grow, and I improve.", background: require('../../../imagesCitations/img48.jpg') },
+    { id: '7', text: "I only accept positive and happy vibes.", background: require('../../../imagesCitations/img49.jpg') },
+    { id: '8', text: "My positive attitude breeds positive results.", background: require('../../../imagesCitations/img50.jpg') },
 ];
 
-const Departs = () => {
+const Motivation = () => {
     return (
         <FlatList
             data={quotesData}
@@ -64,4 +65,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Departs;
+export default Motivation;
