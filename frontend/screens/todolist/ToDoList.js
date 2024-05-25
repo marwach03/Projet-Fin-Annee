@@ -1,14 +1,17 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Modal } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import tempData from './TempData';
 import List from '../../components/List';
 import AddListModal from './AddListModal';
 
-export class ToDoList extends React.Component {
+
+
+export class ToDoList extends Component {
   state = {
     addTodoVisible: false,
-    lists: tempData
+    lists: tempData,
+    selectedListId: null
   };
 
   toggleAddTodoModal() {
@@ -16,44 +19,71 @@ export class ToDoList extends React.Component {
   };
 
   renderList = list => {
-    return <List list={list} updateList={this.updateList}/>;
+    return (
+      <List 
+        list={list} 
+        updateList={this.updateList} 
+      />
+    );
   };
 
-  addList = list =>{
-    this.setState({lists: [...this.state.lists,{...list,id: this.state.lists.length + 1, todos: [] }]})
+  addList = list => {
+    const updatedLists = [...this.state.lists, { ...list, id: this.state.lists.length + 1, todos: [] }];
+    this.setState({ lists: updatedLists });
+    this.updateTempData(updatedLists);
   };
 
   updateList = list => {
-    this.setState({
-      lists: this.state.lists.map(item => {
-        return item.id === list.id ? list: item
-      })
-    })
+    const updatedLists = this.state.lists.map(item => {
+      return item.id === list.id ? list : item;
+    });
+    this.setState({ lists: updatedLists });
+    this.updateTempData(updatedLists);
+  };
+
+  // Fonction pour supprimer une liste
+  deleteList = (listId) => {
+    const updatedLists = this.state.lists.filter(list => list.id !== listId);
+    this.setState({ lists: updatedLists });
+    this.updateTempData(updatedLists);
+  };
+
+  // Mise à jour de tempData
+  updateTempData(updatedLists) {
+    // Supprimez toutes les listes actuelles de tempData
+    tempData.splice(0, tempData.length);
+    // Ajoutez les listes mises à jour à tempData
+    updatedLists.forEach(list => {
+      tempData.push(list);
+    });
   }
-  
+
   render() {
     return (
       <View style={styles.container}>
         <Modal animationType="slide" visible={this.state.addTodoVisible} onRequestClose={() => this.toggleAddTodoModal()}>
           <AddListModal closeModal={() => this.toggleAddTodoModal()} addList={this.addList} />
         </Modal>
-  
+
         <View style={{ flexDirection: "row", marginTop: 80 }}>
           <View style={styles.divider} />
           <Text style={styles.title1}>To Do<Text style={styles.title2}>Lists</Text></Text>
           <View style={styles.divider} />
         </View>
-  
+
         <View style={styles.aa}>
           <TouchableOpacity style={styles.addList} onPress={() => this.toggleAddTodoModal()}>
             <AntDesign name='plus' size={16} color={'#008080'} />
           </TouchableOpacity>
         </View>
-  
+
         <ScrollView style={styles.bb} showsVerticalScrollIndicator={false}>
           {this.state.lists.map((item, index) => (
-            <View key={item.name} style={[styles.listItem, index === this.state.lists.length - 1 && styles.lastItemSpacing]}>
+            <View key={item.id} style={[styles.listItem, index === this.state.lists.length - 1 && styles.lastItemSpacing]}>
               {this.renderList(item)}
+              <TouchableOpacity onPress={() => this.deleteList(item.id)}>
+                <AntDesign name="delete" size={24} color="red" />
+              </TouchableOpacity>
             </View>
           ))}
         </ScrollView>
@@ -61,7 +91,6 @@ export class ToDoList extends React.Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container:{
