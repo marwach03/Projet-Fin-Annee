@@ -42,6 +42,11 @@ import ParagraphFive from "./screens/LearnigRessources/Articles/paragrapheFive";
 import ParagraphSix from "./screens/LearnigRessources/Articles/paragrapheSix";
 import ParagraphSeven from "./screens/LearnigRessources/Articles/paragrapheSeven";
 import ParagraphEight from "./screens/LearnigRessources/Articles/paragrapheEight";
+import Productivity from "./screens/LearnigRessources/Articles/productivityParagraph";
+import ParagraphNine from "./screens/LearnigRessources/Articles/paragrapheNine";
+import ParagraphTen from "./screens/LearnigRessources/Articles/paragrapheTen";
+import ParagraphEleven from "./screens/LearnigRessources/Articles/paragrapheEleven";
+import ParagraphTwelve from "./screens/LearnigRessources/Articles/paragrapheTwelve"; 
 
 const Stack = createStackNavigator();
 
@@ -120,6 +125,11 @@ function App() {
           <Stack.Screen name="ParagraphSix" component={ParagraphSix}/>
           <Stack.Screen name="ParagraphSeven" component={ParagraphSeven}/>
           <Stack.Screen name="ParagraphEight" component={ParagraphEight}/>
+          <Stack.Screen name="Productivity" component={Productivity}/>
+          <Stack.Screen name="ParagraphNine" component={ParagraphNine}/>
+          <Stack.Screen name="ParagraphTen" component={ParagraphTen}/>
+          <Stack.Screen name="ParagraphEleven" component={ParagraphEleven}/>
+          <Stack.Screen name="ParagraphTwelve" component={ParagraphTwelve}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

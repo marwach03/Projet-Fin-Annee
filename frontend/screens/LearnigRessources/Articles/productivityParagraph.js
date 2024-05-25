@@ -2,42 +2,44 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, ImageBackground , Image, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Articles = () => {
+const Productivity = () => {
 
   const navigation = useNavigation();
-    
-  const handleEmotional= () => {
-      navigation.navigate('Emotional');
+
+  const handleParagraph9 = () => {
+    navigation.navigate('ParagraphNine');
   }
 
-  const handlePsychology = () => {
-    navigation.navigate('Psychology');
+  const handleParagraph10 = () => {
+    navigation.navigate('ParagraphNine');
   }
 
-  const handleProductivity = () => {
-    navigation.navigate('Productivity');
+  const handleParagraph11 = () => {
+    navigation.navigate('ParagraphNine');
   }
+
+  const handleParagraph12 = () => {
+    navigation.navigate('ParagraphNine');
+  }
+
 
     return (
       <View style={styles.container}>
 
         <View style={styles.bigcontainer}>
-          <Text style={styles.h1}>Articles</Text>
+          <Text style={styles.h1}>Productivity and growth</Text>
           <View style={styles.containerRow}>
-            <TouchableOpacity style={styles.containers} onPress={() => handleEmotional()}>
-              <Text style={styles.datetext2}>Emotional well-being</Text>
+            <TouchableOpacity style={styles.containers} onPress={() => handleParagraph9()}>
+                <Text style={styles.datetext2}>5 Ways to Overcome Procrastination</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity style={styles.containers} onPress={() => handlePsychology()}>
-              <Text style={styles.datetext2}>Psychology</Text>
+            <TouchableOpacity style={styles.containers} onPress={() => handleParagraph10()}>
+                <Text style={styles.datetext2}>Mastering Your Day</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity style={styles.containers} onPress={() => handleProductivity()}>
-              <Text style={styles.datetext2}>Productivity and growth</Text>
+            <TouchableOpacity style={styles.containers} onPress={() => handleParagraph11()}>
+                <Text style={styles.datetext2}>Breaking Through Limiting Beliefs</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity style={styles.containers} >
-              <Text style={styles.datetext2}>Physical well-being</Text>
+            <TouchableOpacity style={styles.containers} onPress={() => handleParagraph12()}>
+                <Text style={styles.datetext2}>The Power Of Using Your Intuition to Make Decisions</Text>
             </TouchableOpacity>
           </View>
         </View>        
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
   h1:{
     marginTop: windowHeight * -0.02,
     fontSize: windowHeight * 0.07,
-    marginLeft: windowHeight * 0.13,
+    marginLeft: windowHeight * 0.09,
     marginBottom: windowHeight * -0.01,
     fontWeight: 'bold',
     color : "white",
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.1,
     marginTop: windowHeight * 0.07,
     marginBottom: windowHeight * -0.05,
-    marginLeft: windowHeight * 0.02,
+    marginLeft: windowHeight * 0.03,
     backgroundColor: '#E3FEF7',
     borderRadius: 10,
     justifyContent: 'center',
@@ -84,7 +86,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   datetext2:{
-    marginTop: windowHeight * -0,
     fontSize: windowHeight * 0.02,
     fontWeight: 'bold',
   },
@@ -110,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Articles;
+export default Productivity;
