@@ -11,15 +11,15 @@ const Productivity = () => {
   }
 
   const handleParagraph10 = () => {
-    navigation.navigate('ParagraphNine');
+    navigation.navigate('ParagraphTen');
   }
 
   const handleParagraph11 = () => {
-    navigation.navigate('ParagraphNine');
+    navigation.navigate('ParagraphEleven');
   }
 
   const handleParagraph12 = () => {
-    navigation.navigate('ParagraphNine');
+    navigation.navigate('ParagraphTwelve');
   }
 
 

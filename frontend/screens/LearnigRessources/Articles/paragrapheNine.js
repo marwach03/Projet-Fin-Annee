@@ -8,7 +8,7 @@ const ParagraphNine = () => {
             <View style={styles.container}>
                 <View>
                     <Text style={styles.h1}>5 Ways to Overcome Procrastination and Improve Your Productivity</Text>
-                    <Image source={require('../../../images/p10.jpg')} style={styles.icons2} />
+                    <Image source={require('../../../images/p9.jpg')} style={styles.icons2} />
 
                     <Text style={styles.text1}>
                         Procrastination is a common struggle for many people, and it can be a significant barrier to productivity. When we procrastinate, we delay important tasks and activities, which can ultimately lead to stress and anxiety. Fortunately, there are several ways to overcome it and be more productive. We've put together 5 methods that can help you deal with procrastination. To help you apply them in practice, we've based them on a model situation of preparing for a challenging exam:{'\n'}

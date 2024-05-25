@@ -46,7 +46,12 @@ import Productivity from "./screens/LearnigRessources/Articles/productivityParag
 import ParagraphNine from "./screens/LearnigRessources/Articles/paragrapheNine";
 import ParagraphTen from "./screens/LearnigRessources/Articles/paragrapheTen";
 import ParagraphEleven from "./screens/LearnigRessources/Articles/paragrapheEleven";
-import ParagraphTwelve from "./screens/LearnigRessources/Articles/paragrapheTwelve"; 
+import ParagraphTwelve from "./screens/LearnigRessources/Articles/paragrapheTwelve";
+import Physical from "./screens/LearnigRessources/Articles/physicalParagraph";
+import ParagraphThirteen from "./screens/LearnigRessources/Articles/paragrapheThirteen";
+import ParagraphFourteen from "./screens/LearnigRessources/Articles/paragrapheFourteen";
+import ParagraphFifteen from "./screens/LearnigRessources/Articles/paragrapheFifteen";
+import ParagraphSixteen from "./screens/LearnigRessources/Articles/paragrapheSixteen";
 
 const Stack = createStackNavigator();
 
@@ -130,6 +135,11 @@ function App() {
           <Stack.Screen name="ParagraphTen" component={ParagraphTen}/>
           <Stack.Screen name="ParagraphEleven" component={ParagraphEleven}/>
           <Stack.Screen name="ParagraphTwelve" component={ParagraphTwelve}/>
+          <Stack.Screen name="Physical" component={Physical}/>
+          <Stack.Screen name="ParagraphThirteen" component={ParagraphThirteen}/>
+          <Stack.Screen name="ParagraphFourteen" component={ParagraphFourteen}/>
+          <Stack.Screen name="ParagraphFifteen" component={ParagraphFifteen}/>
+          <Stack.Screen name="ParagraphSixteen" component={ParagraphSixteen}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
