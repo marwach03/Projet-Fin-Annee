@@ -60,7 +60,41 @@ async function collectEmoji() {
 }
 
 
+async function saveSleepDurationToDatabase(duration) {
+  const today = new Date();
+  const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const endOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59, 999);
+
+  try {
+      // Supprimer les documents avec la date d'aujourd'hui
+      const querySnapshot = await db.collection('sleepDurations')
+          .where('date', '>=', startOfToday)
+          .where('date', '<=', endOfToday)
+          .get();
+
+      // Supprimer les documents récupérés
+      querySnapshot.forEach(async (doc) => {
+          await doc.ref.delete();
+          console.log('Document supprimé avec succès :', doc.id);
+      });
+
+      // Ajouter la nouvelle durée de sommeil à la collection sleepDurations
+      await db.collection('sleepDurations').add({
+          duration: duration,
+          date: new Date() // Utiliser la date actuelle comme date d'enregistrement
+      });
+
+      console.log('Nouvelle durée de sommeil ajoutée avec succès dans Firestore');
+  } catch (error) {
+      console.error('Erreur lors de la manipulation de la base de données Firestore :', error);
+      throw error;
+  }
+}
+
+
 module.exports = {
   addMood,
-  collectEmoji
+  collectEmoji,
+  saveSleepDurationToDatabase
 };
+

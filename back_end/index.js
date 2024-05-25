@@ -1,5 +1,7 @@
 const express = require('express');
 const { addMood, collectEmoji } = require('./firebase');
+const { saveSleepDurationToDatabase } = require('./firebase');
+
 
 const app = express();
 const port = 3000;
@@ -30,6 +32,18 @@ app.get('/collect-emoji', async (req, res) => {
   } catch (error) {
     console.error("Erreur lors de la collecte de l'emoji :", error);
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Route pour enregistrer la durée de sommeil
+app.post('/enregistrer-duree-sommeil', async (req, res) => {
+  const { duration } = req.body; // Destructuring pour obtenir la durée directement
+  try {
+    await saveSleepDurationToDatabase(duration); // Passer seulement la durée
+    res.status(200).send('Durée de sommeil enregistrée avec succès dans Firestore.');
+  } catch (error) {
+    console.error("Erreur lors de l'enregistrement de la durée de sommeil dans Firestore :", error);
+    res.status(500).send('Erreur lors de l\'enregistrement de la durée de sommeil dans Firestore');
   }
 });
 
