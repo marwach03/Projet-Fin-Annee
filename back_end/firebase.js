@@ -14,12 +14,29 @@ const db = admin.firestore();
 
 async function addMood(moodData) {
   try {
-    console.log("Deleting documents...");
-    // Delete all documents in the "moods" collection
-    const querySnapshot = await db.collection('moods').get();
-    const deletePromises = querySnapshot.docs.map((doc) => doc.ref.delete());
+    console.log("Deleting documents with today's date...");
+
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayISOString = today.toISOString();
+
+    // Retrieve all documents with today's date
+    const querySnapshot = await db.collection('moods')
+      .where('timestamp', '>=', todayISOString)
+      .get();
+    
+    const deletePromises = querySnapshot.docs.map((doc) => {
+      const docDate = new Date(doc.data().timestamp);
+      // Ensure we're comparing only the date part
+      docDate.setHours(0, 0, 0, 0);
+      if (docDate.getTime() === today.getTime()) {
+        return doc.ref.delete();
+      }
+    });
+
     await Promise.all(deletePromises);
-    console.log("Documents deleted.");
+    console.log("Documents with today's date deleted.");
 
     // Add the new mood to the collection "moods"
     await db.collection('moods').add(moodData);
@@ -28,6 +45,7 @@ async function addMood(moodData) {
     console.error('Error adding mood to Firestore:', error);
   }
 }
+
 
 async function collectEmoji() {
   try {

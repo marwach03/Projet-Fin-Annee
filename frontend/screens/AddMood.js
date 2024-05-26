@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import axios from 'axios';
-import Humeur from './Humeur';
-import Acceuil from './pageAcceuil';
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../config'; // Importez firebase depuis le fichier de configuration
 
@@ -17,6 +15,8 @@ const AddMood = ({ navigation }) => {
     // Récupérer l'utilisateur actuellement connecté
     const currentUser = firebase.auth().currentUser;
 
+    console.log('Current user:', currentUser);
+
     // Vérifier si un utilisateur est connecté
     if (currentUser) {
       // Récupérer les informations de l'utilisateur à partir de la base de données Firestore
@@ -26,6 +26,7 @@ const AddMood = ({ navigation }) => {
             // Récupérer le nom d'utilisateur depuis les données de l'utilisateur
             const userData = doc.data();
             setUsername(userData.username);
+            console.log('Username:', userData.username);
           } else {
             console.log('No such document!');
           }
@@ -56,6 +57,8 @@ const AddMood = ({ navigation }) => {
           username: username, // Utilisez le nom d'utilisateur récupéré depuis Firebase
         };
   
+        console.log('Mood data to send:', moodData);
+
         // Appel de la fonction addMood ici
         await axios.post('http://192.168.11.220:3000/enregistrer-mood', moodData);
         
@@ -70,7 +73,6 @@ const AddMood = ({ navigation }) => {
       console.error('Erreur lors de l\'envoi du mood au serveur :', error);
     }
   };
-  
   
   const emojis = [
     { emoji: <Emoji emoji="⊗" />, mood: '~  ~' },

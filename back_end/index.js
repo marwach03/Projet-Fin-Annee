@@ -19,6 +19,7 @@ app.post('/enregistrer-mood', async (req, res) => {
     res.status(500).send('Erreur lors de l\'enregistrement du mood dans Firestore');
   }
 });
+
 // Route pour collecter l'emoji
 app.get('/collect-emoji', async (req, res) => {
   try {
