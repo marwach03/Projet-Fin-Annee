@@ -57,6 +57,7 @@ import Motivation from "./screens/LearnigRessources/Affirmations/motivation";
 import Focussing from "./screens/LearnigRessources/Affirmations/foccusing";
 import ControlStress from "./screens/LearnigRessources/Affirmations/controlStress";
 import Positivity from "./screens/LearnigRessources/Affirmations/positivity";
+import SleepDurationChart from "./screens/Sleep/chartSleep";
 const Stack = createStackNavigator();
 
 function App() {
@@ -149,6 +150,7 @@ function App() {
           <Stack.Screen name="Focussing" component={Focussing}/>
           <Stack.Screen name="ControlStress" component={ControlStress}/>
           <Stack.Screen name="Positivity" component={Positivity}/>
+          <Stack.Screen name="SleepDurationChart" component={SleepDurationChart}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

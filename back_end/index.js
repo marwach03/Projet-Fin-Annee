@@ -1,6 +1,6 @@
 const express = require('express');
 const { addMood, collectEmoji } = require('./firebase');
-const { saveSleepDurationToDatabase } = require('./firebase');
+const { saveSleepDurationToDatabase, getSleepDurations } = require('./firebase');
 
 
 const app = express();
@@ -44,6 +44,20 @@ app.post('/enregistrer-duree-sommeil', async (req, res) => {
   } catch (error) {
     console.error("Erreur lors de l'enregistrement de la durée de sommeil dans Firestore :", error);
     res.status(500).send('Erreur lors de l\'enregistrement de la durée de sommeil dans Firestore');
+  }
+});
+
+
+app.get('/sleep-durations', async (req, res) => {
+  try {
+    // Appeler la fonction pour récupérer les durées de sommeil depuis Firestore
+    const sleepDurations = await getSleepDurations();
+    
+    // Envoyer les durées de sommeil au client
+    res.status(200).json(sleepDurations);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des durées de sommeil:', error);
+    res.status(500).json({ error: 'Erreur lors de la récupération des durées de sommeil depuis Firestore' });
   }
 });
 

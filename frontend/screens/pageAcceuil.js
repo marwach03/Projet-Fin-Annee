@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import citation from './Citations/citations';
 import MeditationAcceuil from './Meditation/meditationAcceuil';
 import Sleep from './Sleep/BedtimeDial';
+import SleepDurationChart from './Sleep/chartSleep';
 
 const Acceuil = () => {
   const navigation = useNavigation();
@@ -41,6 +42,10 @@ const Acceuil = () => {
 
   const handleLearning = () => {
     navigation.navigate('Learning');
+  }
+
+  const handleChartSleep = () => {
+    navigation.navigate('SleepDurationChart');
   }
 
   useEffect(() => {
@@ -108,6 +113,8 @@ const Acceuil = () => {
             </TouchableOpacity>
           </View>
         </View>
+
+        <SleepDurationChart />
 
         <View>
           <Text style={styles.h2}>Articles for you</Text>

@@ -92,9 +92,29 @@ async function saveSleepDurationToDatabase(duration) {
 }
 
 
+async function getSleepDurations() {
+  try {
+    // Récupérer tous les documents de la collection 'sleepDurations'
+    const querySnapshot = await db.collection('sleepDurations').orderBy('date').get();
+    
+    // Convertir les documents en un tableau de données contenant uniquement la date et la durée de sommeil
+    const sleepDurations = querySnapshot.docs.map(doc => ({
+      date: doc.data().date.toDate(),
+      duration: doc.data().duration,
+    }));
+    
+    return sleepDurations;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des durées de sommeil depuis Firestore:', error);
+    throw error;
+  }
+}
+
+
 module.exports = {
   addMood,
   collectEmoji,
-  saveSleepDurationToDatabase
+  saveSleepDurationToDatabase,
+  getSleepDurations // Exporter la nouvelle fonction
 };
 
