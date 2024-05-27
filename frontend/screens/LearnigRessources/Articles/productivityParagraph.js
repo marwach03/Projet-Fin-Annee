@@ -28,19 +28,33 @@ const Productivity = () => {
 
         <View style={styles.bigcontainer}>
           <Text style={styles.h1}>Productivity and growth</Text>
+
           <View style={styles.containerRow}>
+
             <TouchableOpacity style={styles.containers} onPress={() => handleParagraph9()}>
+              <ImageBackground source={require('../../../images/p9.jpg')} style={styles.icons2}>
                 <Text style={styles.datetext2}>5 Ways to Overcome Procrastination</Text>
+              </ImageBackground>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.containers} onPress={() => handleParagraph10()}>
+              <ImageBackground source={require('../../../images/p10.jpg')} style={styles.icons2}>
                 <Text style={styles.datetext2}>Mastering Your Day</Text>
+              </ImageBackground>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.containers} onPress={() => handleParagraph11()}>
+              <ImageBackground source={require('../../../images/p11.jpg')} style={styles.icons2}>
                 <Text style={styles.datetext2}>Breaking Through Limiting Beliefs</Text>
+              </ImageBackground>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.containers} onPress={() => handleParagraph12()}>
-                <Text style={styles.datetext2}>The Power Of Using Your Intuition to Make Decisions</Text>
+              <ImageBackground source={require('../../../images/p12.jpg')} style={styles.icons2}>
+                <Text style={styles.datetext3}>The Power Of Using Your Intuition to Make Decisions</Text>
+              </ImageBackground>
             </TouchableOpacity>
+
           </View>
         </View>        
       </View>
@@ -55,23 +69,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'black',
+    backgroundColor:'white',
   },
   h1:{
-    marginTop: windowHeight * -0.02,
+    marginTop: windowHeight * -0.2,
     fontSize: windowHeight * 0.07,
-    marginLeft: windowHeight * 0.09,
+    marginLeft: windowHeight * 0.04,
     marginBottom: windowHeight * -0.01,
     fontWeight: 'bold',
-    color : "white",
+    color : "#008E8E",
   },
   containers:{
-    width: windowHeight * 0.46,
+    width: windowHeight * 0.25,
     height: windowHeight * 0.1,
     marginTop: windowHeight * 0.07,
     marginBottom: windowHeight * -0.05,
-    marginLeft: windowHeight * 0.03,
-    backgroundColor: '#E3FEF7',
+    marginLeft: windowHeight * 0.15,
+    backgroundColor: '#000',
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -87,11 +101,21 @@ const styles = StyleSheet.create({
   },
   datetext2:{
     fontSize: windowHeight * 0.02,
+    paddingTop: windowHeight * 0.07,
     fontWeight: 'bold',
+    color: 'white',
+  },
+  datetext3:{
+    fontSize: windowHeight * 0.02,
+    paddingTop: windowHeight * 0.07,
+    fontWeight: 'bold',
+    color: '#000',
   },
   icons2:{
-    marginTop: windowHeight * 0.03,
-    width: windowHeight * 0.1,
+    marginTop: windowHeight * 0.1,
+    marginBottom: windowHeight * 0.1,
+    left: windowHeight * -0.04,
+    width: windowHeight * 0.45,
     height: windowHeight * 0.1,
   },
   containers2:{
