@@ -2,17 +2,10 @@ import React, { useState, useRef } from 'react';
 import { ScrollView, View, Text, StyleSheet, ImageBackground, Image, Dimensions, TouchableOpacity, Animated, PanResponder } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Audio,Video } from 'expo-av';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Learning = () => {
     const navigation = useNavigation();
-    
-    const handleArticles= () => {
-        navigation.navigate('Articles');
-    }
-
-    const handleAffirmations = () => {
-      navigation.navigate('Affirmations')
-    }
 
     const handleEmotional= () => {
       navigation.navigate('Emotional');
@@ -30,21 +23,16 @@ const Learning = () => {
       navigation.navigate('Physical');
     }
 
-    const rotation = useRef(new Animated.Value(0)).current;
-    const [angle, setAngle] = useState(0);
+    const [rotationAngle, setRotationAngle] = useState(new Animated.Value(0)); 
 
-    const panResponder = useRef(
-      PanResponder.create({
-        onMoveShouldSetPanResponder: () => true,
-        onPanResponderMove: (event, gestureState) => {
-          const newAngle = angle + gestureState.dx / 2; // Adjust the division to control sensitivity
-          rotation.setValue(newAngle);
-        },
-        onPanResponderRelease: (event, gestureState) => {
-          setAngle(prevAngle => prevAngle + gestureState.dx / 2);
-        }
-      })
-    ).current;
+    const handleRotateWheel = () => {
+      // Gérer la rotation de la roue lorsque la roulette est tournée
+      Animated.timing(rotationAngle, {
+        toValue: Math.random() * 360, // Tourner la roue à un angle aléatoire entre 0 et 360 degrés
+        duration: 500, // Durée de l'animation en millisecondes (moitié de la durée initiale)
+        useNativeDriver: true, // Utiliser le moteur natif pour l'animation
+      }).start();
+    };
 
     const positions = [
       { x: 0, y: -100 },
@@ -56,17 +44,31 @@ const Learning = () => {
     const animatedStyle = {
       transform: [
         {
-          rotate: rotation.interpolate({
-            inputRange: [-360, 360],
-            outputRange: ['-360deg', '360deg']
-          })
-        }
-      ]
+          rotate: rotationAngle.interpolate({
+            inputRange: [0, 360],
+            outputRange: ['0deg', '360deg'],
+          }),
+        },
+      ],
     };
 
     const handleButtonPress = (index) => {
-      Alert.alert(`Button ${index + 1} pressed`);
+      switch (index) {
+        case 0:
+          navigation.navigate('Motivation');
+          break;
+        case 1:
+          navigation.navigate('Focussing');
+          break;
+        case 2:
+          navigation.navigate('ControlStress');
+          break;
+        case 3:
+          navigation.navigate('Positivity');
+          break;
+      }
     };
+  
 
     return (
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -107,13 +109,46 @@ const Learning = () => {
                     <Text style={styles.datetext2}>Physical well-being</Text>
                   </TouchableOpacity>
 
+                    <View style={styles.containerR}>
+
+                    <View>
+                      <Text style={styles.titre2}>Tournez la roue et découvrez la pensée qui embellira votre journée !</Text>
+                    </View>
+
+                    <Animated.View style={[styles.rouletteContainer, animatedStyle]}>
+                        {positions.map((position, index) => (
+                          <TouchableOpacity
+                            key={index}
+                            style={[
+                              styles.button,
+                              {
+                                transform: [
+                                  { translateX: position.x },
+                                  { translateY: position.y }
+                                ]
+                              }
+                            ]}
+                            onPress={() => handleButtonPress(index)}
+                          >
+
+                            {/* <Image source={require('../../images/chance.png')} style={styles.icons2} /> */}
+                            <Icon name="leaf" size={60} color="white" />
+                          </TouchableOpacity>
+                        ))}
+                      </Animated.View>
+
+                      <TouchableOpacity style={styles.rotateButton} onPress={handleRotateWheel}>
+                        <Text style={styles.rotateButtonText}>Tourner</Text>
+                      </TouchableOpacity>
+                  </View>
+
                   <View>
                     <Text style={styles.titre}>Podcasts</Text>
                   </View>
 
-                  {<TouchableOpacity style={styles.containers} >
+                  <TouchableOpacity style={styles.containers} >
                     <Text style={styles.datetext2}>Podcasts</Text>
-                  </TouchableOpacity>}
+                  </TouchableOpacity>
 
                   <View>
                     <Text style={styles.titre}>Videos</Text>
@@ -121,38 +156,6 @@ const Learning = () => {
 
                   <TouchableOpacity style={styles.containers} >
                     <Text style={styles.datetext2}>Videos</Text>
-                  </TouchableOpacity>
-
-                  <View>
-                    <Text style={styles.titre}>Affirmations</Text>
-                  </View>
-
-
-                  <View style={styles.containerR}>
-                    <Animated.View style={[styles.rouletteContainer, animatedStyle]} {...panResponder.panHandlers}>
-                      {positions.map((position, index) => (
-                        <TouchableOpacity
-                          key={index}
-                          style={[
-                            styles.button,  
-                            {
-                              transform: [
-                                { translateX: position.x },
-                                { translateY: position.y }
-                              ]
-                            }
-                          ]}
-                          onPress={() => handleButtonPress(index)}
-                        >
-                          <Text style={styles.buttonText}>{index + 1}</Text>
-                        </TouchableOpacity>
-                      ))}
-                    </Animated.View>
-                  </View>
-
-
-                  <TouchableOpacity style={styles.containers} onPress={() => handleAffirmations()}>
-                    <Text style={styles.datetext2}>Affiramtions</Text>
                   </TouchableOpacity>
 
               </View>
@@ -215,8 +218,8 @@ const styles = StyleSheet.create({
   },
   icons2:{
     marginTop: windowHeight * 0.03,
-    width: windowHeight * 0.1,
-    height: windowHeight * 0.1,
+    width: windowHeight * 0.05,
+    height: windowHeight * 0.05,
   },
   containers2:{
     width: windowHeight * 0.19,
@@ -287,13 +290,16 @@ const styles = StyleSheet.create({
     fontSize: windowWidth * 0.1,
     left: windowWidth * 0.07,
   },
-
-
+  titre2:{
+    top: windowWidth * 0.03,
+    fontSize: windowWidth * 0.05,
+    left: windowWidth * 0.07,
+  },
   rouletteContainer: {
     width: 100,
     height: 100,
-    top: 200,
-    left: -80,
+    top: 150,
+    left: 150,
     marginBottom: 280,
     justifyContent: 'center',
     alignItems: 'center',
@@ -307,6 +313,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  rotateButtonText: {
+    left: windowWidth * 0.32,
+    top: windowWidth * 0.05,
+    fontSize: windowWidth * 0.07,
+    borderWidth: 2, // Ajout de la largeur de la bordure
+    borderColor: 'red', // Couleur de la bordure
+    opacity: 1,
+    width: windowWidth * 0.3,
+    paddingLeft: windowWidth * 0.02,
+    marginBottom: windowWidth * 0.08,
+  },
+  
 });
 
 export default Learning;
