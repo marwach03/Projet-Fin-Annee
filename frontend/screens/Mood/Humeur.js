@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, Dimensions, ScrollView } from 'react-native';
 import SwipeGesture from 'react-native-swipe-gestures';
 import { useNavigation } from '@react-navigation/native';
 import AddMood from './AddMood';
+import MoodChart from './chartMood';
 
 const Humeur = ({ navigation }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -31,7 +32,7 @@ const Humeur = ({ navigation }) => {
 
   const fetchEmoji = async () => {
     try {
-      const response = await fetch('http://192.168.11.146:3000/collect-emoji');
+      const response = await fetch('http://192.168.11.220:3000/collect-emoji');
       const data = await response.json();
       if (response.ok) {
         setEmoji(data.emoji);
@@ -106,8 +107,9 @@ const Humeur = ({ navigation }) => {
   const onSwipeRight = () => changeMonth(-1);
 
   return (
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
     <View>
-      <Image source={require('../images/logo.png')} style={styles.image} />
+      <Image source={require('../../images/logo.png')} style={styles.image} />
       <Text style={styles.title}>Mood Board</Text>
 
       <View>
@@ -117,7 +119,7 @@ const Humeur = ({ navigation }) => {
           config={swipeConfig}
           style={styles.container}
         >
-          <ImageBackground source={require('../images/marbre.jpg')}  style={styles.calendar}>
+          <ImageBackground source={require('../../images/marbre.jpg')}  style={styles.calendar}>
             <View style={styles.navigation}>
               <TouchableOpacity onPress={() => changeMonth(-1)}>
                 <Text style={styles.navigationText}>{'<'}</Text>
@@ -142,19 +144,22 @@ const Humeur = ({ navigation }) => {
       </View>
 
       <View>
-        <ImageBackground source={require('../images/poudre.jpg')} style={styles.container2}>
+        <ImageBackground source={require('../../images/poudre.jpg')} style={styles.container2}>
           <Text style={styles.datetext}>{ selectedDate ? selectedDate : todayDate } {currentDate.toLocaleString('en-US', { month: 'long' })} {currentDate.getFullYear()}</Text>
         </ImageBackground>
       </View>
 
       <View style={styles.line}></View>
 
-      <ImageBackground source={require('../images/marbre.jpg')} style={styles.container3}>
+      <ImageBackground source={require('../../images/marbre.jpg')} style={styles.container3}>
         <TouchableOpacity onPress={navAddMood}>
           <Text style={styles.datetext2}>Add My Mood</Text>
         </TouchableOpacity>
       </ImageBackground>
+      
+      <MoodChart />
     </View>
+    </ScrollView>
   );
 };
 
@@ -275,7 +280,11 @@ const styles = StyleSheet.create({
     width: windowWidth * 0.5,
     marginTop: windowWidth * 0.01,
     marginLeft: windowWidth * 0.05,
-  }
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    paddingBottom: 100, // Modifier selon votre besoin
+  },
 });
 
 export default Humeur;

@@ -129,10 +129,31 @@ async function getSleepDurations() {
 }
 
 
+async function getMoodData() {
+  try {
+    // Récupérer tous les documents de la collection 'moods'
+    const querySnapshot = await db.collection('moods').orderBy('timestamp').get();
+    
+    // Convertir les documents en un tableau de données contenant uniquement la date et le mood
+    const moodData = querySnapshot.docs.map(doc => ({
+      date: doc.data().timestamp, // Utiliser directement timestamp
+      mood: doc.data().mood,
+    }));
+    console.log(moodData);
+    return moodData;
+  } catch (error) {
+    console.error('Erreur lors de la récupération des données de mood depuis Firestore:', error);
+    throw error;
+  }
+}
+
+
+
 module.exports = {
   addMood,
   collectEmoji,
   saveSleepDurationToDatabase,
-  getSleepDurations // Exporter la nouvelle fonction
+  getSleepDurations, // Exporter la nouvelle fonction
+  getMoodData
 };
 

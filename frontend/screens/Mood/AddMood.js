@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
-import { firebase } from '../config'; // Importez firebase depuis le fichier de configuration
+import { firebase } from '../../config'; // Importez firebase depuis le fichier de configuration
 
 const Emoji = ({ emoji }) => <Text style={styles.emojiText}>{emoji}</Text>;
 
@@ -60,7 +60,7 @@ const AddMood = ({ navigation }) => {
         console.log('Mood data to send:', moodData);
 
         // Appel de la fonction addMood ici
-        await axios.post('http://192.168.11.146:3000/enregistrer-mood', moodData);
+        await axios.post('http://192.168.11.220:3000/enregistrer-mood', moodData);
         
         console.log('Mood envoyé avec succès au serveur.');
   

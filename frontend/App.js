@@ -11,9 +11,9 @@ import Welcome from "./screens/Welcome";
 import Signup from "./screens/Signup";
 import Login from "./screens/Login";
 import Acceuil from "./screens/pageAcceuil";
-import Humeur from "./screens/Humeur";
+import Humeur from "./screens/Mood/Humeur";
 import Profile from "./screens/Profile";
-import AddMood from "./screens/AddMood";
+import AddMood from "./screens/Mood/AddMood";
 import ToDoList from "./screens/todolist/ToDoList";
 import BottomTabNavigator from "./navigation/bottomTabNavigator";
 import Citation from "./screens/Citations/citations";
@@ -57,6 +57,7 @@ import Focussing from "./screens/LearnigRessources/Affirmations/foccusing";
 import ControlStress from "./screens/LearnigRessources/Affirmations/controlStress";
 import Positivity from "./screens/LearnigRessources/Affirmations/positivity";
 import SleepDurationChart from "./screens/Sleep/chartSleep";
+import MoodChart from "./screens/Mood/chartMood";
 const Stack = createStackNavigator();
 
 function App() {
@@ -149,6 +150,7 @@ function App() {
           <Stack.Screen name="ControlStress" component={ControlStress}/>
           <Stack.Screen name="Positivity" component={Positivity}/>
           <Stack.Screen name="SleepDurationChart" component={SleepDurationChart}/>
+          <Stack.Screen name="MoodChart" component={MoodChart}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

@@ -1,6 +1,6 @@
 const express = require('express');
 const { addMood, collectEmoji } = require('./firebase');
-const { saveSleepDurationToDatabase, getSleepDurations } = require('./firebase');
+const { saveSleepDurationToDatabase, getSleepDurations, getMoodData } = require('./firebase');
 
 
 const app = express();
@@ -62,6 +62,19 @@ app.get('/sleep-durations', async (req, res) => {
   }
 });
 
+// Route pour récupérer les données de mood
+app.get('/mood-data', async (req, res) => {
+  try {
+    // Appeler la fonction pour récupérer les données de mood depuis Firestore
+    const moodData = await getMoodData();
+    
+    // Envoyer les données de mood au client
+    res.status(200).json(moodData);
+  } catch (error) {
+    console.error('Erreur lors de la récupération des données de mood:', error);
+    res.status(500).json({ error: 'Erreur lors de la récupération des données de mood depuis Firestore' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Serveur lancé sur le port ${port}`);
