@@ -178,6 +178,7 @@ const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
     paddingBottom: 150, // Modifier selon votre besoin
+    //backgroundColor:'white'
   },
   container: {
     flex: 1,

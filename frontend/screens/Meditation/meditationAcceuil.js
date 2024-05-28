@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 1000,
     alignItems: 'center',
-    backgroundColor:'#000',//135D66
+    backgroundColor:'#90a39d',//135D66
   },
   h1:{
     //marginTop: windowHeight * 0.3,
@@ -121,12 +121,12 @@ const styles = StyleSheet.create({
     color : "black",
   },
   containers:{
-    width: windowHeight * 0.43,
+    width: windowHeight * 0.48,
     height: windowHeight * 0.15,
-    marginTop: windowHeight * 0.07,
+    marginTop: windowHeight * 0.1,
     marginBottom: windowHeight * -0.05,
     marginLeft: windowHeight * 0.02,
-    backgroundColor: '#fff',//E3FEF7
+    backgroundColor: '#bce0d6',//E3FEF7
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   datetext2:{
     marginTop: windowHeight * -0.04,
     marginBottom: windowHeight * 0.03,
-    marginLeft: windowHeight * 0.1,
+    marginLeft: windowHeight * 0.12,
     width: 320,
     fontSize: windowHeight * 0.02,
     fontWeight: 'bold',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   usernameS:{
     color:'white',
     fontWeight: 'bold',
-    fontSize:windowHeight * 0.035,
+    fontSize:windowHeight * 0.033,
     marginTop: windowHeight * -0.25,
     paddingLeft:windowHeight * 0.02,
   },
@@ -194,14 +194,15 @@ const styles = StyleSheet.create({
   containerVideo:{
     marginTop: windowWidth * -0.05,
     marginLeft: windowWidth * 0.01,
-    width: windowWidth * 1,
+    width: windowWidth * 0.97,
     height: windowWidth * 0.6,
     borderRadius:20,
     overflow: 'hidden',
+    marginBottom: windowWidth * -0.05,
   },
   icons2:{
     marginTop: windowHeight * 0.03,
-    marginLeft: windowHeight * -0.35,
+    marginLeft: windowHeight * -0.41,
     width: windowHeight * 0.05,
     height: windowHeight * 0.05,
     justifyContent: 'center', 

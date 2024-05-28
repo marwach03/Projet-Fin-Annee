@@ -13,7 +13,7 @@ const SleepDurationChart = () => {
 
     const fetchSleepDurations = async () => {
         try {
-            const response = await fetch('http://192.168.11.146:3000/sleep-durations');
+            const response = await fetch('http://192.168.11.220:3000/sleep-durations');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -41,12 +41,6 @@ const SleepDurationChart = () => {
 
     const chartData = formatDataForChart(sleepData);
 
-    const rotateLabels = (labels) => {
-        return labels.map((label, index) => (
-            <SvgText key={index} x={10} y={(index * 20) + 10} fill="#ffffff" transform="rotate(90 10 10)">{label}</SvgText>
-        ));
-    };
-
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Sleep Duration Chart</Text>
@@ -61,7 +55,8 @@ const SleepDurationChart = () => {
                 }}
                 width={Dimensions.get('window').width - 16}
                 height={420}
-                yAxisLabel=""
+                xAxisLabel=""
+                xLabelsOffset={-10}
                 yAxisSuffix="h"
                 chartConfig={{
                     backgroundColor: 'black',
@@ -81,11 +76,8 @@ const SleepDurationChart = () => {
                 }}
                 bezier
                 style={styles.chart}
-            >
-                <Svg>
-                    {rotateLabels(chartData.labels)}
-                </Svg>
-            </LineChart>
+                verticalLabelRotation={90} // Rotation des labels de l'axe des abscisses de 45 degrés
+            />
         </View>
     );
 };

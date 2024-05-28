@@ -172,7 +172,7 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
-    paddingBottom: 70, // Modifier selon votre besoin
+    paddingBottom: 1, // Modifier selon votre besoin
   },
   container: {
     flex: 1,
@@ -293,28 +293,28 @@ const styles = StyleSheet.create({
   titre2:{
     top: windowWidth * 0.03,
     fontSize: windowWidth * 0.05,
-    left: windowWidth * 0.07,
+    left: windowWidth * 0.01,
   },
   rouletteContainer: {
-    width: 100,
-    height: 100,
-    top: 150,
-    left: 150,
-    marginBottom: 280,
+    width: windowWidth * 0.25,
+    height: windowWidth * 0.25,
+    top: windowHeight * 0.2,
+    left: windowHeight * 0.2,
+    marginBottom: windowHeight * 0.38,
     justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
-    width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
+    width: windowWidth * 0.28,
+    height: windowWidth * 0.28,
+    borderRadius: windowWidth * 0.28 / 2,
     backgroundColor: '#008080',
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
   },
   rotateButtonText: {
-    left: windowWidth * 0.32,
+    left: windowWidth * 0.35,
     top: windowWidth * 0.05,
     fontSize: windowWidth * 0.07,
     borderWidth: 2, // Ajout de la largeur de la bordure

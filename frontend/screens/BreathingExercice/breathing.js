@@ -16,17 +16,17 @@ const Breathing = () => {
                 // Inhale phase
                 Animated.timing(inhaleTextOpacity, {
                     toValue: 1,
-                    duration: 300,
+                    duration: 200,
                     useNativeDriver: true,
                 }),
                 Animated.timing(move, {
                     toValue: 1,
-                    duration: 4000,
+                    duration: 3500,
                     useNativeDriver: true,
                 }),
                 Animated.timing(inhaleTextOpacity, {
                     toValue: 0,
-                    duration: 4000,
+                    duration: 3500,
                     useNativeDriver: true,
                 }),
                 // Pause phase - Hold your breath
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: windowWidth * 0.07,
         fontWeight: "600",
-        marginTop:- windowHeight* 0.76,
+        marginTop:- windowHeight* 0.74,
         marginRight:windowWidth * 0.4,
     },
     container1: {
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Pour aligner les éléments verticalement
         paddingVertical: 10,
         width: width,
-        marginRight: windowHeight* 0.19,
+        marginRight: windowHeight* 0.21,
         width: windowWidth* 0.89,
         padding: 10,
         marginTop: windowHeight * 0.2,
