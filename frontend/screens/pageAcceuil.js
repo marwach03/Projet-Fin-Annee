@@ -48,6 +48,22 @@ const Acceuil = () => {
     navigation.navigate('SleepDurationChart');
   }
 
+  const handleParagraph1 = () => {
+    navigation.navigate('ParagraphOne');
+  }
+
+  const handleParagraph5 = () => {
+    navigation.navigate('ParagraphFive');
+  }
+
+  const handleParagraph10 = () => {
+    navigation.navigate('ParagraphTen');
+  }
+
+  const handleParagraph15 = () => {
+    navigation.navigate('ParagraphFifteen');
+  }
+
   useEffect(() => {
     // Récupérer l'utilisateur actuellement connecté
     const currentUser = firebase.auth().currentUser;
@@ -122,21 +138,31 @@ const Acceuil = () => {
 
         <ScrollView horizontal={true}>
           <View style={styles.containerRow}>
-            <TouchableOpacity style={styles.containers2}>
-              <Text style={styles.datetext2}>Article</Text>
+          
+            <TouchableOpacity style={styles.containers2} onPress={() => handleParagraph10()}>
+                <ImageBackground source={require('../images/p10.jpg')} style={styles.icons3}>
+                  <Text style={styles.datetext3}>Mastering Your Day</Text>
+                </ImageBackground>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.containers2} onPress={() => handleParagraph15()}>
+                <ImageBackground source={require('../images/p15.jpg')} style={styles.icons3}>
+                  <Text style={styles.datetext3}>5 Ways to Achieve Happiness Through Yoga</Text>
+                </ImageBackground>
+              </TouchableOpacity>
+
+            <TouchableOpacity style={styles.containers2} onPress={() => handleParagraph1()}>
+              <ImageBackground source={require('../images/p1.jpg')} style={styles.icons3}>
+                <Text style={styles.datetext3}>Hunger of the heart: food is not just fuel</Text>
+              </ImageBackground>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers2}>
-              <Text style={styles.datetext2}>Article</Text>
+            <TouchableOpacity style={styles.containers2} onPress={() => handleParagraph5()}>
+              <ImageBackground source={require('../images/p5.jpg')} style={styles.icons3}>
+                <Text style={styles.datetext3}>How to deal with anger</Text>
+              </ImageBackground>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers2}>
-              <Text style={styles.datetext2}>Article</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.containers2}>
-              <Text style={styles.datetext2}>Article</Text>
-            </TouchableOpacity>
           </View>
         </ScrollView>
         
@@ -207,9 +233,6 @@ const styles = StyleSheet.create({
     elevation: 10,
     margin: windowHeight * 0.015,
   },
-  bigcontainer:{
-
-  },
   containerRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -219,10 +242,24 @@ const styles = StyleSheet.create({
     marginTop: windowHeight * -0,
     fontSize: windowHeight * 0.02,
   },
+  datetext3:{
+    marginTop: windowHeight * -0,
+    fontWeight: 'bold',
+    left: windowHeight * 0.01,
+    top : windowHeight * 0.02,
+    fontSize: windowHeight * 0.02,
+    color: 'white',
+  },
   icons2:{
     marginTop: windowHeight * 0.03,
     width: windowHeight * 0.1,
     height: windowHeight * 0.1,
+  },
+  icons3:{
+    marginTop: windowHeight * -0.2,
+    top: windowHeight * 0.1,
+    width: windowHeight * 0.2,
+    height: windowHeight * 0.4,
   },
   h2:{
     marginTop: windowHeight * 0.08,

@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, SafeAreaView, TouchableOpacity, FlatList, Keybo
     TextInput, Keyboard  } from 'react-native'
 import React from 'react'
 import { AntDesign, MaterialCommunityIcons   } from '@expo/vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class TodoModal extends React.Component {
 state = {
@@ -24,6 +25,12 @@ addTodo = () => {
 
     Keyboard.dismiss();
 }
+
+deleteTodo = (index) => {
+    const updatedList = [...this.props.list.todos];
+    updatedList.splice(index, 1);
+    this.props.updateList({ ...this.props.list, todos: updatedList });
+  };
 
 renderTodo = (todo,index) => {
     return (
@@ -48,6 +55,10 @@ renderTodo = (todo,index) => {
                
                 </Text>
             </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => this.deleteTodo(index)} style={styles.deleteButton}>
+          <Icon name="minus" size={20} color= '#FF0000' marginTop={-17} />
+        </TouchableOpacity>
         </View>
     )
 }
@@ -76,11 +87,13 @@ render() {
                     <FlatList
                         data={list.todos}
                         renderItem={({ item, index }) => this.renderTodo(item, index)}
-                        keyExtractor={item => (item.id ? item.id.toString() : item.title)} 
-                        contentContainerStyle = {{paddingHorizontal:32, paddingVertical:64}}
+                        keyExtractor={item => (item.id ? item.id.toString() : item.title)}
+                        contentContainerStyle={{ paddingHorizontal: 32, paddingVertical: 64 }}
                         showsVerticalScrollIndicator={false}
+                        extraData={this.state} // Ajoute extraData pour forcer le re-render lorsque l'état change
                     />
                 </View>
+
 
                 <View style={[styles.section,styles.footer]}>
                     <TextInput 
@@ -161,5 +174,8 @@ todo:{
     fontSize: 16,
     right:-50,
     top:-25
-}
+},
+deleteButton: {
+    marginLeft: 'auto', // This ensures the delete button is aligned to the right
+  },
 });

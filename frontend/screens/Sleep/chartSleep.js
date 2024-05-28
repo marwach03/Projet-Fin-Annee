@@ -13,7 +13,7 @@ const SleepDurationChart = () => {
 
     const fetchSleepDurations = async () => {
         try {
-            const response = await fetch('http://192.168.11.220:3000/sleep-durations');
+            const response = await fetch('http://192.168.11.146:3000/sleep-durations');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
