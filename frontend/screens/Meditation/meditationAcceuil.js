@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 1000,
     alignItems: 'center',
-    backgroundColor:'#90a39d',//135D66
+    backgroundColor:'white',//135D66
   },
   h1:{
     //marginTop: windowHeight * 0.3,

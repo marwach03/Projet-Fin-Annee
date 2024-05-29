@@ -23,6 +23,9 @@ const Learning = () => {
       navigation.navigate('Physical');
     }
 
+    const handlePodcasts = () => {
+      navigation.navigate('PodcastsAcceuil')
+    }
     const [rotationAngle, setRotationAngle] = useState(new Animated.Value(0)); 
 
     const handleRotateWheel = () => {
@@ -146,7 +149,7 @@ const Learning = () => {
                     <Text style={styles.titre}>Podcasts</Text>
                   </View>
 
-                  <TouchableOpacity style={styles.containers} >
+                  <TouchableOpacity style={styles.containers} onPress={() => handlePodcasts()}>
                     <Text style={styles.datetext2}>Podcasts</Text>
                   </TouchableOpacity>
 
@@ -172,14 +175,14 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
-    paddingBottom: 1, // Modifier selon votre besoin
+    paddingBottom: 20, // Modifier selon votre besoin
+    backgroundColor:'#fff',
   },
   container: {
     flex: 1,
     left: 0.5,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'#fff',
   },
   h1:{
     marginTop: windowHeight * 0.05,
@@ -194,7 +197,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.1,
     marginTop: windowHeight * 0.04,
     marginBottom: windowHeight * 0.02,
-    marginLeft: windowHeight * 0.02,
+    marginLeft: windowHeight * 0.05,
     backgroundColor: '#E3FEF7',
     borderRadius: 10,
     justifyContent: 'center',
@@ -214,7 +217,7 @@ const styles = StyleSheet.create({
     fontSize: windowHeight * 0.02,
     justifyContent: 'center',
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
   },
   icons2:{
     marginTop: windowHeight * 0.03,

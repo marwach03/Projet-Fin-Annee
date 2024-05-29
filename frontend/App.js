@@ -58,6 +58,9 @@ import ControlStress from "./screens/LearnigRessources/Affirmations/controlStres
 import Positivity from "./screens/LearnigRessources/Affirmations/positivity";
 import SleepDurationChart from "./screens/Sleep/chartSleep";
 import MoodChart from "./screens/Mood/chartMood";
+import PodcastsAcceuil from "./screens/LearnigRessources/Podcasts/podcastsAcceuil";
+import PositivityPodcast from "./screens/LearnigRessources/Podcasts/positivityPodcast";
+import NeverGiveUpPodcast from "./screens/LearnigRessources/Podcasts/neverGiveUpPodcast";
 const Stack = createStackNavigator();
 
 function App() {
@@ -151,6 +154,9 @@ function App() {
           <Stack.Screen name="Positivity" component={Positivity}/>
           <Stack.Screen name="SleepDurationChart" component={SleepDurationChart}/>
           <Stack.Screen name="MoodChart" component={MoodChart}/>
+          <Stack.Screen name="PodcastsAcceuil" component={PodcastsAcceuil}/>
+          <Stack.Screen name="PositivityPodcast" component={PositivityPodcast}/>
+          <Stack.Screen name="NeverGiveUpPodcast" component={NeverGiveUpPodcast}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
