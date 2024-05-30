@@ -120,7 +120,7 @@ const Learning = () => {
                     <View style={styles.containerR}>
 
                     <View>
-                      <Text style={styles.titre2}>Tournez la roue et découvrez la pensée qui embellira votre journée !</Text>
+                      <Text style={styles.titre2}>Spin the wheel and discover the thought that will brighten your day!</Text>
                     </View>
 
                     <Animated.View style={[styles.rouletteContainer, animatedStyle]}>
@@ -146,24 +146,16 @@ const Learning = () => {
                       </Animated.View>
 
                       <TouchableOpacity style={styles.rotateButton} onPress={handleRotateWheel}>
-                        <Text style={styles.rotateButtonText}>Tourner</Text>
+                        <Text style={styles.rotateButtonText}>Spin</Text>
                       </TouchableOpacity>
                   </View>
 
-                  <View>
-                    <Text style={styles.titre}>Podcasts</Text>
-                  </View>
-
-                  <TouchableOpacity style={styles.containers} onPress={() => handlePodcasts()}>
-                    <Text style={styles.datetext2}>Podcasts</Text>
+                  <TouchableOpacity style={styles.containers6} onPress={() => handlePodcasts()}>
+                    <Text style={styles.datetext3}>Podcasts</Text>
                   </TouchableOpacity>
 
-                  <View>
-                    <Text style={styles.titre}>Videos</Text>
-                  </View>
-
-                  <TouchableOpacity style={styles.containers} onPress={handleRelaxation}>
-                    <Text style={styles.datetext2}>Exercices de relaxation</Text>
+                  <TouchableOpacity style={styles.containers7} onPress={handleRelaxation}>
+                    <Text style={styles.datetext3}>Exercices de relaxation</Text>
                   </TouchableOpacity>
 
               </View>
@@ -223,6 +215,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     fontWeight: 'bold',
     color: 'black',
+  },
+  datetext3:{
+    marginTop: windowHeight * 0.01,
+    fontSize: windowHeight * 0.03,
+    justifyContent: 'center',
+    fontWeight: 'bold',
+    color: 'white',
   },
   icons2:{
     marginTop: windowHeight * 0.03,
@@ -285,6 +284,34 @@ const styles = StyleSheet.create({
     elevation: 10,
     margin: windowHeight * 0.015,
   },
+  containers6:{
+    width: windowHeight * 0.43,
+    height: windowHeight * 0.15,
+    marginTop: windowHeight * 0.03,
+    marginLeft: windowWidth * 0.07,
+    backgroundColor: "#007CB0",
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    elevation: 10,
+    margin: windowHeight * 0.015,
+  },
+  containers7:{
+    width: windowHeight * 0.43,
+    height: windowHeight * 0.15,
+    marginTop: windowHeight * 0.03,
+    marginLeft: windowWidth * 0.07,
+    backgroundColor: "#007CB0",
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    elevation: 10,
+    margin: windowHeight * 0.015,
+  },
   containerVideo:{
     marginTop: windowWidth * 0.6,
     marginLeft: windowWidth * 0.01,
@@ -326,10 +353,10 @@ const styles = StyleSheet.create({
     top: windowWidth * 0.05,
     fontSize: windowWidth * 0.07,
     borderWidth: 2, // Ajout de la largeur de la bordure
-    borderColor: 'red', // Couleur de la bordure
+    borderColor: '#008080', // Couleur de la bordure
     opacity: 1,
     width: windowWidth * 0.3,
-    paddingLeft: windowWidth * 0.02,
+    paddingLeft: windowWidth * 0.08,
     marginBottom: windowWidth * 0.08,
   },
   
