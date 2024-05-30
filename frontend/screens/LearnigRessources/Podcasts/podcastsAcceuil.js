@@ -15,7 +15,13 @@ const PodcastsAcceuil = () => {
     navigation.navigate('NeverGiveUpPodcast');
   };
 
-  
+  const handleMorningPodcast = () => {
+    navigation.navigate('MorningPodcast');
+  };
+
+  const handleMondayPodcast = () => {
+    navigation.navigate('MondayPodcast');
+  };
 
   const [username, setUsername] = useState(null);
 
@@ -69,19 +75,19 @@ const PodcastsAcceuil = () => {
               <Text style={styles.datetext2} >The power of positivity</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity style={styles.containers} onPress={() => handleMondayPodcast()}>
+              <Image source={require('../../../images/play.png')} style={styles.icons2} />
+              <Text style={styles.datetext2}>Monday motivation</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.containers} onPress={() => handleNeverGiveUp()}>
               <Image source={require('../../../images/play.png')} style={styles.icons2} />
-              <Text style={styles.datetext2}>Brighten Your Day</Text>
+              <Text style={styles.datetext2}>Never give up</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.containers} >
+            <TouchableOpacity style={styles.containers} onPress={() => handleMorningPodcast()}>
               <Image source={require('../../../images/play.png')} style={styles.icons2} />
-              <Text style={styles.datetext2}>More confident</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.containers}>
-              <Image source={require('../../../images/play.png')} style={styles.icons2} />
-              <Text style={styles.datetext2}>Mindfulness</Text>
+              <Text style={styles.datetext2}>Morning motivation</Text>
             </TouchableOpacity>
           </View>
         </View>        

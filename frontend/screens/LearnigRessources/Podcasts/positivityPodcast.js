@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, Modal } from 'react-native';
 import { Audio, Video } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
-import {firebase} from '../../../config'
 
 class PositivityPodcast extends Component {
   constructor(props) {
@@ -15,9 +14,6 @@ class PositivityPodcast extends Component {
       isVideoMuted: true,
       secondSound: null,
       isSecondSoundPlaying: false,
-      soundList: [
-        // Ajoutez d'autres fichiers audio ici
-      ],
       selectedSoundIndex: 0,
       modalVisible: false // état pour contrôler la visibilité du menu
     };

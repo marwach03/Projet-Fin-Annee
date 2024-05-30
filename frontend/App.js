@@ -61,6 +61,8 @@ import MoodChart from "./screens/Mood/chartMood";
 import PodcastsAcceuil from "./screens/LearnigRessources/Podcasts/podcastsAcceuil";
 import PositivityPodcast from "./screens/LearnigRessources/Podcasts/positivityPodcast";
 import NeverGiveUpPodcast from "./screens/LearnigRessources/Podcasts/neverGiveUpPodcast";
+import MorningPodcast from "./screens/LearnigRessources/Podcasts/morningPodcast";
+import MondayPodcast from "./screens/LearnigRessources/Podcasts/mondayPodcast";
 const Stack = createStackNavigator();
 
 function App() {
@@ -157,6 +159,8 @@ function App() {
           <Stack.Screen name="PodcastsAcceuil" component={PodcastsAcceuil}/>
           <Stack.Screen name="PositivityPodcast" component={PositivityPodcast}/>
           <Stack.Screen name="NeverGiveUpPodcast" component={NeverGiveUpPodcast}/>
+          <Stack.Screen name="MorningPodcast" component={MorningPodcast}/>
+          <Stack.Screen name="MondayPodcast" component={MondayPodcast}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
