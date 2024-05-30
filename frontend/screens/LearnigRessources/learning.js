@@ -26,6 +26,11 @@ const Learning = () => {
     const handlePodcasts = () => {
       navigation.navigate('PodcastsAcceuil')
     }
+
+    const handleRelaxation = () => {
+      navigation.navigate('ExercicesRelaxation');
+    }
+
     const [rotationAngle, setRotationAngle] = useState(new Animated.Value(0)); 
 
     const handleRotateWheel = () => {
@@ -157,8 +162,8 @@ const Learning = () => {
                     <Text style={styles.titre}>Videos</Text>
                   </View>
 
-                  <TouchableOpacity style={styles.containers} >
-                    <Text style={styles.datetext2}>Videos</Text>
+                  <TouchableOpacity style={styles.containers} onPress={handleRelaxation}>
+                    <Text style={styles.datetext2}>Exercices de relaxation</Text>
                   </TouchableOpacity>
 
               </View>

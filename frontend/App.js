@@ -63,6 +63,9 @@ import PositivityPodcast from "./screens/LearnigRessources/Podcasts/positivityPo
 import NeverGiveUpPodcast from "./screens/LearnigRessources/Podcasts/neverGiveUpPodcast";
 import MorningPodcast from "./screens/LearnigRessources/Podcasts/morningPodcast";
 import MondayPodcast from "./screens/LearnigRessources/Podcasts/mondayPodcast";
+import ExercicesRelaxation from "./screens/LearnigRessources/ExercicesRelaxation/AccueilRelaxation";
+import Minuteur from "./screens/LearnigRessources/ExercicesRelaxation/minuteur";
+import Exercice from "./screens/LearnigRessources/ExercicesRelaxation/exercice";
 const Stack = createStackNavigator();
 
 function App() {
@@ -161,6 +164,9 @@ function App() {
           <Stack.Screen name="NeverGiveUpPodcast" component={NeverGiveUpPodcast}/>
           <Stack.Screen name="MorningPodcast" component={MorningPodcast}/>
           <Stack.Screen name="MondayPodcast" component={MondayPodcast}/>
+          <Stack.Screen name="ExercicesRelaxation" component={ExercicesRelaxation}/>
+          <Stack.Screen name="Minuteur" component={Minuteur}/>
+          <Stack.Screen name="Exercice" component={Exercice}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

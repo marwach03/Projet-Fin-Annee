@@ -45,7 +45,7 @@ const BedtimeDial = ({ navigation }) => {
         try {
             const durationData = getSleepDuration(bedtime, wakeTime);
     
-            const response = await axios.post('http://192.168.11.220:3000/enregistrer-duree-sommeil', { duration: durationData });
+            const response = await axios.post('http://192.168.11.146:3000/enregistrer-duree-sommeil', { duration: durationData });
     
             if (response.status === 200) {
                 console.log('Durée de sommeil enregistrée avec succès sur le serveur.');
