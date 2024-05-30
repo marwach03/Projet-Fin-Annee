@@ -21,31 +21,31 @@ const ExercicesRelaxation = () => {
           <View style={styles.containerRow}>
             <View style={styles.containers1}>
               <ImageBackground source={require('../../../images/V1.png')} style={styles.icons2}>
-                <Text style={styles.datetext2}>Etirement des rhomboides 30s</Text>
+                <Text style={styles.datetext2}>Rhomboid stretch 30s</Text>
               </ImageBackground>
             </View>
             
             <View style={styles.containers1}>
               <ImageBackground source={require('../../../images/V2.png')} style={styles.icons3}>
-                <Text style={styles.datetext2}>Cercles dans le sens des aiguilles d'un montre 30s</Text>
+                <Text style={styles.datetext2}>Clockwise circles 30s</Text>
               </ImageBackground>
             </View>
 
             <View style={styles.containers1}>
               <ImageBackground source={require('../../../images/V3.png')} style={styles.icons4}>
-                <Text style={styles.datetext2}>Cercles dans le sens des aiguilles d'un montre 30s</Text>
+                <Text style={styles.datetext2}>crocodile shoulders 30s</Text>
               </ImageBackground>
             </View>
 
             <View style={styles.containers1}>
               <ImageBackground source={require('../../../images/V4.png')} style={styles.icons5}>
-                <Text style={styles.datetext2}>Roulement d'épaule dans le sens des aiguilles d'un montre 30s</Text>
+                <Text style={styles.datetext2}>Shoulder roll clockwise 30s</Text>
               </ImageBackground>
             </View>
 
             <View style={styles.containers1}>
               <ImageBackground source={require('../../../images/V5.png')} style={styles.icons5}>
-                <Text style={styles.datetext2}>Mouvements de tete vers le bas et le haut 30s</Text>
+                <Text style={styles.datetext2}>Head movements down and up 30s</Text>
               </ImageBackground>
             </View>
 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   h1:{
     marginTop: windowWidth * -0.8,
-    fontSize: windowHeight * 0.07,
+    fontSize: windowHeight * 0.04,
     marginLeft: windowHeight * 0.08,
     fontWeight: 'bold',
     color : "#FAA2AA",
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
+    marginLeft: windowHeight * 0.03,
   },
   datetext2:{
     marginTop: windowHeight * 0.07,
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
   },
   scrollViewContent: {
     flexGrow: 1,
-    paddingBottom: 70, // Modifier selon votre besoin
+    paddingBottom: 0, // Modifier selon votre besoin
   },
   icons2:{
     marginTop: windowHeight * 0.04,
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#008080",
     borderRadius: 10,
     marginTop: windowHeight * 0.7,
-    marginLeft: windowHeight * 0.1,
+    marginLeft: windowHeight * 0.085,
     marginBottom:  windowHeight * -0.5,
     width:200,
   },

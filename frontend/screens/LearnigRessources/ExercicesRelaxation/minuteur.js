@@ -31,7 +31,7 @@ const TimerCircle = ({ totalTime, onComplete }) => {
 
   return (
     <View style={styles.container}>
-      <Svg height="200" width="200" viewBox="0 0 200 200">
+      <Svg height="150" width="150" viewBox="0 0 200 200">
         <Circle
           cx="100"
           cy="100"

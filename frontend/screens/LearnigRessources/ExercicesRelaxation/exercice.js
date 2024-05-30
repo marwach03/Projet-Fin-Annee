@@ -19,7 +19,7 @@ const Exercice = () => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.texte2}>Soulagement des douleurs de la nuque et des épaules</Text>
+        <Text style={styles.texte2}>Relief from neck and shoulder pain</Text>
         {stage === 0 && (
           <>
             <Video
@@ -39,7 +39,7 @@ const Exercice = () => {
                 totalTime={30}
                 onComplete={handleTimerComplete}
               />
-              <Text style={styles.timerText}>Temps restant</Text>
+              <Text style={styles.timerText}>Remaining time</Text>
             </View>
           </>
         )}
@@ -53,7 +53,7 @@ const Exercice = () => {
                 }} 
             />
             <View>
-                <Text style={styles.Repos}>Repos</Text>
+                <Text style={styles.Repos}>Rest</Text>
             </View>
             </>}
         {stage === 2 && (
@@ -75,7 +75,7 @@ const Exercice = () => {
                     totalTime={30}
                     onComplete={handleTimerComplete}
                 />
-                <Text style={styles.timerText}>Temps restant</Text>
+                <Text style={styles.timerText}>Remaining time</Text>
                 </View>
             </>
             )}
@@ -89,7 +89,7 @@ const Exercice = () => {
                 }} 
             />
             <View>
-                <Text style={styles.Repos}>Repos</Text>
+                <Text style={styles.Repos}>Rest</Text>
             </View>
             </>}
         {stage === 4 && (
@@ -111,7 +111,7 @@ const Exercice = () => {
                     totalTime={30}
                     onComplete={handleTimerComplete}
                 />
-                <Text style={styles.timerText}>Temps restant</Text>
+                <Text style={styles.timerText}>Remaining time</Text>
                 </View>
             </>
             )}
@@ -125,7 +125,7 @@ const Exercice = () => {
             }} 
             />
             <View>
-                <Text style={styles.Repos}>Repos</Text>
+                <Text style={styles.Repos}>Rest</Text>
             </View>
             </>}
         {stage === 6 && (
@@ -147,7 +147,7 @@ const Exercice = () => {
                     totalTime={30}
                     onComplete={handleTimerComplete}
                 />
-                <Text style={styles.timerText}>Temps restant</Text>
+                <Text style={styles.timerText}>Remaining time</Text>
                 </View>
             </>
             )}
@@ -161,7 +161,7 @@ const Exercice = () => {
             }} 
             />
             <View>
-                <Text style={styles.Repos}>Repos</Text>
+                <Text style={styles.Repos}>Rest</Text>
             </View>
             </>}
         {stage === 8 && (
@@ -183,7 +183,7 @@ const Exercice = () => {
                     totalTime={30}
                     onComplete={handleTimerComplete}
                 />
-                <Text style={styles.timerText}>Temps restant</Text>
+                <Text style={styles.timerText}>Remaining time</Text>
                 </View>
             </>
             )}
@@ -210,11 +210,11 @@ const styles = StyleSheet.create({
   },
   video: {
     width: Dimensions.get('window').width,
-    height: 400,
+    height: 350,
     marginBottom: windowWidth * 0.1,
   },
   texte2:{
-    marginTop: windowWidth * -0.05,
+    marginTop: windowWidth * 0.1,
     fontSize: windowHeight * 0.03,
     marginLeft: windowHeight * 0.02,
     marginBottom: windowHeight * 0.05,
@@ -225,13 +225,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   circle: {
-    width: 150,
-    height: 150,
-    borderRadius: 150,
+    width: 100,
+    height: 100,
+    borderRadius: 100,
     backgroundColor: '#FAA2AA',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 15,
   },
   check: {
     fontSize: 50,
@@ -252,6 +252,9 @@ const styles = StyleSheet.create({
     fontSize: windowWidth * 0.05,
     marginTop: windowWidth * 0.07,
     marginLeft: windowHeight * 0.035,
+  },
+  timerContainer:{
+    marginTop:windowWidth * -0.06,
   }
 });
 

@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.05,
   },
   containerVideo:{
-    marginTop: windowWidth * -0.05,
+    marginTop: windowWidth * -0.3,
     marginLeft: windowWidth * 0.01,
     width: windowWidth * 0.97,
     height: windowWidth * 0.6,

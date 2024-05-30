@@ -11,7 +11,7 @@ const MoodChart = () => {
 
   const fetchMoodData = async () => {
     try {
-      const response = await fetch('http://192.168.11.146:3000/mood-data');
+      const response = await fetch('http://192.168.11.220:3000/mood-data');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
